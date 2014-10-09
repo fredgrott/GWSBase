@@ -14,7 +14,7 @@
     limitations under the License.
 
  */
-package com.grottworkshop.gwsbaselibrary.widget;
+package com.grottworkshop.gwsbaselibrary.widget.googleprogressbar;
 
 import android.content.Context;
 import android.graphics.Canvas;

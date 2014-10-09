@@ -14,7 +14,7 @@
     limitations under the License.
 
  */
-package com.grottworkshop.gwsbaselibrary.widget;
+package com.grottworkshop.gwsbaselibrary.widget.googleprogressbar;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;

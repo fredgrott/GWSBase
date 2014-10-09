@@ -14,7 +14,7 @@
     limitations under the License.
 
  */
-package com.grottworkshop.gwsbaselibrary.widget;
+package com.grottworkshop.gwsbaselibrary.widget.googleprogressbar;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -23,6 +23,9 @@ import android.util.AttributeSet;
 import android.widget.ProgressBar;
 
 import com.grottworkshop.gwsbaselibrary.R;
+import com.grottworkshop.gwsbaselibrary.widget.googleprogressbar.FoldingCirclesDrawable;
+import com.grottworkshop.gwsbaselibrary.widget.googleprogressbar.GoogleMusicDicesDrawable;
+import com.grottworkshop.gwsbaselibrary.widget.googleprogressbar.NexusRotationCrossDrawable;
 
 /**
  * Created by fgrott on 10/7/2014.
