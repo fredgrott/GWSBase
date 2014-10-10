@@ -24,6 +24,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+ *
+ *
  * Created by fgrott on 10/8/2014.
  */
 public final class NoticesHtmlBuilder {
@@ -35,6 +37,12 @@ public final class NoticesHtmlBuilder {
     private String mStyle;
     private boolean mShowFullLicenseText;
 
+    /**
+     * Create notices html builder.
+     *
+     * @param context the context
+     * @return the notices html builder
+     */
     public static NoticesHtmlBuilder create(final Context context) {
         return new NoticesHtmlBuilder(context);
     }
@@ -45,28 +53,57 @@ public final class NoticesHtmlBuilder {
         mShowFullLicenseText = false;
     }
 
+    /**
+     * Sets notices.
+     *
+     * @param notices the notices
+     * @return the notices
+     */
     public NoticesHtmlBuilder setNotices(final Notices notices) {
         mNotices = notices;
         mNotice = null;
         return this;
     }
 
+    /**
+     * Sets notice.
+     *
+     * @param notice the notice
+     * @return the notice
+     */
     public NoticesHtmlBuilder setNotice(final Notice notice) {
         mNotice = notice;
         mNotices = null;
         return this;
     }
 
+    /**
+     * Sets style.
+     *
+     * @param style the style
+     * @return the style
+     */
     public NoticesHtmlBuilder setStyle(final String style) {
         mStyle = style;
         return this;
     }
 
+    /**
+     * Sets show full license text.
+     *
+     * @param showFullLicenseText the show full license text
+     * @return the show full license text
+     */
     public NoticesHtmlBuilder setShowFullLicenseText(final boolean showFullLicenseText) {
         mShowFullLicenseText = showFullLicenseText;
         return this;
     }
 
+    /**
+     * Build string.
+     *
+     * @return the string
+     */
     public String build() {
         final StringBuilder noticesHtmlBuilder = new StringBuilder(500);
         appendNoticesContainerStart(noticesHtmlBuilder);

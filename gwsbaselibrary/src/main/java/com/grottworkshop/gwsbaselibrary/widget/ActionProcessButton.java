@@ -18,6 +18,8 @@ import com.grottworkshop.gwsbaselibrary.R;
 
 
 /**
+ *
+ *
  * Created by fgrott on 10/7/2014.
  */
 public class ActionProcessButton extends ProcessButton {
@@ -31,20 +33,47 @@ public class ActionProcessButton extends ProcessButton {
     private int mColor3;
     private int mColor4;
 
+    /**
+     * The enum Mode.
+     */
     public enum Mode {
-        PROGRESS, ENDLESS;
+        /**
+         * The PROGRESS.
+         */
+        PROGRESS, /**
+         * The ENDLESS.
+         */
+        ENDLESS;
     }
 
+    /**
+     * Instantiates a new Action process button.
+     *
+     * @param context the context
+     */
     public ActionProcessButton(Context context) {
         super(context);
         init(context);
     }
 
+    /**
+     * Instantiates a new Action process button.
+     *
+     * @param context the context
+     * @param attrs the attrs
+     */
     public ActionProcessButton(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(context);
     }
 
+    /**
+     * Instantiates a new Action process button.
+     *
+     * @param context the context
+     * @param attrs the attrs
+     * @param defStyle the def style
+     */
     public ActionProcessButton(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         init(context);
@@ -61,10 +90,23 @@ public class ActionProcessButton extends ProcessButton {
         mColor4 = res.getColor(R.color.holo_red_light);
     }
 
+    /**
+     * Sets mode.
+     *
+     * @param mode the mode
+     */
     public void setMode(Mode mode) {
         mMode = mode;
     }
 
+    /**
+     * Sets color scheme.
+     *
+     * @param color1 the color 1
+     * @param color2 the color 2
+     * @param color3 the color 3
+     * @param color4 the color 4
+     */
     public void setColorScheme(int color1, int color2, int color3, int color4) {
         mColor1 = color1;
         mColor2 = color2;
@@ -125,6 +167,9 @@ public class ActionProcessButton extends ProcessButton {
         mProgressBar.setBounds(0, bottom, getMeasuredWidth(), getMeasuredHeight());
     }
 
+    /**
+     * The type Progress bar.
+     */
     public static class ProgressBar {
 
         // Default progress animation colors are grays.
@@ -158,6 +203,11 @@ public class ActionProcessButton extends ProcessButton {
 
         private Rect mBounds = new Rect();
 
+        /**
+         * Instantiates a new Progress bar.
+         *
+         * @param parent the parent
+         */
         public ProgressBar(View parent) {
             mParent = parent;
             mColor1 = COLOR1;
@@ -195,6 +245,11 @@ public class ActionProcessButton extends ProcessButton {
             }
         }
 
+        /**
+         * Draw void.
+         *
+         * @param canvas the canvas
+         */
         void draw(Canvas canvas) {
             final int width = mBounds.width();
             final int height = mBounds.height();
@@ -325,6 +380,10 @@ public class ActionProcessButton extends ProcessButton {
 
         /**
          * Set the drawing bounds of this SwipeProgressBar.
+         * @param left the left
+         * @param top the top
+         * @param right the right
+         * @param bottom the bottom
          */
         void setBounds(int left, int top, int right, int bottom) {
             mBounds.left = left;

@@ -21,6 +21,8 @@ import android.content.Context;
 import com.grottworkshop.gwsbaselibrary.R;
 
 /**
+ *
+ *
  * Created by fgrott on 10/8/2014.
  */
 public class ISCLicense extends License {

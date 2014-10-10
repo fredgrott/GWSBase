@@ -37,6 +37,8 @@ import android.widget.Button;
 import com.grottworkshop.gwsbaselibrary.R;
 
 /**
+ *
+ *
  * Created by fgrott on 10/7/2014.
  */
 public class FlatButton extends Button {
@@ -45,16 +47,34 @@ public class FlatButton extends Button {
     private CharSequence mNormalText;
     private float cornerRadius;
 
+    /**
+     * Instantiates a new Flat button.
+     *
+     * @param context the context
+     * @param attrs the attrs
+     * @param defStyle the def style
+     */
     public FlatButton(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         init(context, attrs);
     }
 
+    /**
+     * Instantiates a new Flat button.
+     *
+     * @param context the context
+     * @param attrs the attrs
+     */
     public FlatButton(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(context, attrs);
     }
 
+    /**
+     * Instantiates a new Flat button.
+     *
+     * @param context the context
+     */
     public FlatButton(Context context) {
         super(context);
         init(context, null);
@@ -123,30 +143,71 @@ public class FlatButton extends Button {
         return drawablePressed;
     }
 
+    /**
+     * Gets drawable.
+     *
+     * @param id the id
+     * @return the drawable
+     */
     protected Drawable getDrawable(int id) {
         return getResources().getDrawable(id);
     }
 
+    /**
+     * Gets dimension.
+     *
+     * @param id the id
+     * @return the dimension
+     */
     protected float getDimension(int id) {
         return getResources().getDimension(id);
     }
 
+    /**
+     * Gets color.
+     *
+     * @param id the id
+     * @return the color
+     */
     protected int getColor(int id) {
         return getResources().getColor(id);
     }
 
+    /**
+     * Gets typed array.
+     *
+     * @param context the context
+     * @param attributeSet the attribute set
+     * @param attr the attr
+     * @return the typed array
+     */
     protected TypedArray getTypedArray(Context context, AttributeSet attributeSet, int[] attr) {
         return context.obtainStyledAttributes(attributeSet, attr, 0, 0);
     }
 
+    /**
+     * Gets corner radius.
+     *
+     * @return the corner radius
+     */
     public float getCornerRadius() {
         return cornerRadius;
     }
 
+    /**
+     * Gets normal drawable.
+     *
+     * @return the normal drawable
+     */
     public StateListDrawable getNormalDrawable() {
         return mNormalDrawable;
     }
 
+    /**
+     * Gets normal text.
+     *
+     * @return the normal text
+     */
     public CharSequence getNormalText() {
         return mNormalText;
     }
@@ -154,7 +215,7 @@ public class FlatButton extends Button {
     /**
      * Set the View's background. Masks the API changes made in Jelly Bean.
      *
-     * @param drawable
+     * @param drawable the drawable
      */
     @SuppressWarnings("deprecation")
     @SuppressLint("NewApi")

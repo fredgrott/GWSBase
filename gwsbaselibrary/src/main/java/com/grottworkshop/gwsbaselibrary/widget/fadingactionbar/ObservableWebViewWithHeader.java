@@ -8,19 +8,38 @@ import android.view.View;
 import android.webkit.WebView;
 
 /**
+ *
  * Created by fgrott on 10/9/2014.
  */
 public class ObservableWebViewWithHeader extends WebView implements ObservableScrollable {
     private OnScrollChangedCallback mOnScrollChangedCallback;
 
+    /**
+     * Instantiates a new Observable web view with header.
+     *
+     * @param context the context
+     */
     public ObservableWebViewWithHeader(Context context) {
         super(context);
     }
 
+    /**
+     * Instantiates a new Observable web view with header.
+     *
+     * @param context the context
+     * @param attrs the attrs
+     */
     public ObservableWebViewWithHeader(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
+    /**
+     * Instantiates a new Observable web view with header.
+     *
+     * @param context the context
+     * @param attrs the attrs
+     * @param defStyle the def style
+     */
     public ObservableWebViewWithHeader(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
@@ -110,6 +129,11 @@ public class ObservableWebViewWithHeader extends WebView implements ObservableSc
             mOnScrollChangedCallback.onScroll(l, t);
     }
 
+    /**
+     * Gets on scroll changed callback.
+     *
+     * @return the on scroll changed callback
+     */
     public OnScrollChangedCallback getOnScrollChangedCallback() {
         return mOnScrollChangedCallback;
     }

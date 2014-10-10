@@ -22,8 +22,9 @@ import android.widget.AbsListView.OnScrollListener;
 import android.widget.ListView;
 
 
-
 /**
+ *
+ *
  * Created by fgrott on 10/9/2014.
  */
 public class ListViewScrollObserver implements OnScrollListener {
@@ -33,15 +34,39 @@ public class ListViewScrollObserver implements OnScrollListener {
     private int scrollPosition;
     private int lastHeight;
 
+    /**
+     * The interface On list view scroll listener.
+     */
     public interface OnListViewScrollListener {
+        /**
+         * On scroll up down changed.
+         *
+         * @param delta the delta
+         * @param scrollPosition the scroll position
+         * @param exact the exact
+         */
         void onScrollUpDownChanged(int delta, int scrollPosition, boolean exact);
+
+        /**
+         * On scroll idle.
+         */
         void onScrollIdle();
     }
 
+    /**
+     * Instantiates a new List view scroll observer.
+     *
+     * @param listView the list view
+     */
     public ListViewScrollObserver(ListView listView) {
         listView.setOnScrollListener(this);
     }
 
+    /**
+     * Sets on scroll up and down listener.
+     *
+     * @param listener the listener
+     */
     public void setOnScrollUpAndDownListener(OnListViewScrollListener listener) {
         this.listener = listener;
     }

@@ -22,11 +22,19 @@ import android.text.TextPaint;
 import android.text.style.MetricAffectingSpan;
 
 /**
+ *
+ *
+ *
  * Created by fgrott on 10/7/2014.
  */
 public class CalligraphyTypefaceSpan extends MetricAffectingSpan {
     private final Typeface typeface;
 
+    /**
+     * Instantiates a new Calligraphy typeface span.
+     *
+     * @param typeface the typeface
+     */
     public CalligraphyTypefaceSpan(final Typeface typeface) {
         this.typeface = typeface;
     }

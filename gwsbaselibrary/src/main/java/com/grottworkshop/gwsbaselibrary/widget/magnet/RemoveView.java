@@ -16,9 +16,21 @@ import com.grottworkshop.gwsbaselibrary.R;
  */
 class RemoveView {
 
+    /**
+     * The M layout.
+     */
     View mLayout;
+    /**
+     * The M button.
+     */
     View mButton;
+    /**
+     * The M shadow.
+     */
     View mShadow;
+    /**
+     * The M button image.
+     */
     ImageView mButtonImage;
     private WindowManager mWindowManager;
     private SimpleAnimator mShowAnim;
@@ -29,8 +41,16 @@ class RemoveView {
 
     private final int buttonBottomPadding;
 
+    /**
+     * The Should be responsive.
+     */
     boolean shouldBeResponsive = true;
 
+    /**
+     * Instantiates a new Remove view.
+     *
+     * @param context the context
+     */
     RemoveView(Context context) {
         mLayout = LayoutInflater.from(context).inflate(R.layout.magnet_x_button_holder, null);
         mButton = mLayout.findViewById(R.id.xButton);
@@ -47,14 +67,27 @@ class RemoveView {
         hide();
     }
 
+    /**
+     * Sets icon res id.
+     *
+     * @param id the id
+     */
     void setIconResId(int id) {
         mButtonImage.setImageResource(id);
     }
 
+    /**
+     * Sets shadow bG.
+     *
+     * @param shadowBG the shadow bG
+     */
     void setShadowBG(int shadowBG) {
         mShadow.setBackgroundResource(shadowBG);
     }
 
+    /**
+     * Show void.
+     */
     void show() {
         if (mLayout != null && mLayout.getParent() == null) {
             addToWindow(mLayout);
@@ -63,6 +96,9 @@ class RemoveView {
         mShowAnim.startAnimation();
     }
 
+    /**
+     * Hide void.
+     */
     void hide() {
         mShadowFadeOut.startAnimation();
         mHideAnim.startAnimation(new Animation.AnimationListener() {
@@ -85,6 +121,12 @@ class RemoveView {
         });
     }
 
+    /**
+     * On move.
+     *
+     * @param x the x
+     * @param y the y
+     */
     void onMove(final float x, final float y) {
         if (shouldBeResponsive) {
             final int xTransformed = (int) Math.abs(x * 100 / (mButton.getContext().getResources().getDisplayMetrics().widthPixels / 2));
@@ -97,6 +139,9 @@ class RemoveView {
         }
     }
 
+    /**
+     * Destroy void.
+     */
     void destroy() {
         if (mLayout != null && mLayout.getParent() != null) {
             mWindowManager.removeView(mLayout);

@@ -20,6 +20,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+ *
+ *
  * Created by fgrott on 10/8/2014.
  */
 public final class LicenseResolver {

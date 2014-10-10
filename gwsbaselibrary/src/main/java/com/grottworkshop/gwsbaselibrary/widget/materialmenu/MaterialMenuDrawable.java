@@ -34,14 +34,34 @@ import android.view.animation.DecelerateInterpolator;
 import android.view.animation.Interpolator;
 
 /**
+ *
+ *
  * Created by fgrott on 10/9/2014.
  */
 public class MaterialMenuDrawable extends Drawable implements Animatable {
 
+    /**
+     * The enum Icon state.
+     */
     public enum IconState {
-        BURGER, ARROW, X, CHECK
+        /**
+         * The BURGER.
+         */
+        BURGER, /**
+         * The ARROW.
+         */
+        ARROW, /**
+         * The X.
+         */
+        X, /**
+         * The CHECK.
+         */
+        CHECK
     }
 
+    /**
+     * The enum Stroke.
+     */
     public enum Stroke {
         /**
          * 3 dip
@@ -58,10 +78,21 @@ public class MaterialMenuDrawable extends Drawable implements Animatable {
 
         private final int strokeWidth;
 
+        /**
+         * Instantiates a new Stroke.
+         *
+         * @param strokeWidth the stroke width
+         */
         Stroke(int strokeWidth) {
             this.strokeWidth = strokeWidth;
         }
 
+        /**
+         * Value of.
+         *
+         * @param strokeWidth the stroke width
+         * @return the stroke
+         */
         protected static Stroke valueOf(int strokeWidth) {
             switch (strokeWidth) {
                 case 3:
@@ -76,13 +107,43 @@ public class MaterialMenuDrawable extends Drawable implements Animatable {
         }
     }
 
+    /**
+     * The constant DEFAULT_COLOR.
+     */
     public static final int DEFAULT_COLOR              = Color.WHITE;
+    /**
+     * The constant DEFAULT_SCALE.
+     */
     public static final int DEFAULT_SCALE              = 1;
+    /**
+     * The constant DEFAULT_TRANSFORM_DURATION.
+     */
     public static final int DEFAULT_TRANSFORM_DURATION = 800;
+    /**
+     * The constant DEFAULT_PRESSED_DURATION.
+     */
     public static final int DEFAULT_PRESSED_DURATION   = 400;
 
     private enum AnimationState {
-        BURGER_ARROW, BURGER_X, ARROW_X, ARROW_CHECK, BURGER_CHECK, X_CHECK
+        /**
+         * The BURGER_ARROW.
+         */
+        BURGER_ARROW, /**
+         * The BURGER_X.
+         */
+        BURGER_X, /**
+         * The ARROW_X.
+         */
+        ARROW_X, /**
+         * The ARROW_CHECK.
+         */
+        ARROW_CHECK, /**
+         * The BURGER_CHECK.
+         */
+        BURGER_CHECK, /**
+         * The X_CHECK.
+         */
+        X_CHECK
     }
 
     private static final int BASE_DRAWABLE_WIDTH  = 40;
@@ -145,14 +206,40 @@ public class MaterialMenuDrawable extends Drawable implements Animatable {
 
     private MaterialMenuState materialMenuState;
 
+    /**
+     * Instantiates a new Material menu drawable.
+     *
+     * @param context the context
+     * @param color the color
+     * @param stroke the stroke
+     */
     public MaterialMenuDrawable(Context context, int color, Stroke stroke) {
         this(context, color, stroke, DEFAULT_SCALE, DEFAULT_TRANSFORM_DURATION, DEFAULT_PRESSED_DURATION);
     }
 
+    /**
+     * Instantiates a new Material menu drawable.
+     *
+     * @param context the context
+     * @param color the color
+     * @param stroke the stroke
+     * @param transformDuration the transform duration
+     * @param pressedDuration the pressed duration
+     */
     public MaterialMenuDrawable(Context context, int color, Stroke stroke, int transformDuration, int pressedDuration) {
         this(context, color, stroke, DEFAULT_SCALE, transformDuration, pressedDuration);
     }
 
+    /**
+     * Instantiates a new Material menu drawable.
+     *
+     * @param context the context
+     * @param color the color
+     * @param stroke the stroke
+     * @param scale the scale
+     * @param transformDuration the transform duration
+     * @param pressedDuration the pressed duration
+     */
     public MaterialMenuDrawable(Context context, int color, Stroke stroke, int scale, int transformDuration, int pressedDuration) {
         Resources resources = context.getResources();
         // convert each separately due to various densities
@@ -558,28 +645,58 @@ public class MaterialMenuDrawable extends Drawable implements Animatable {
      * Accessor methods
      */
 
+    /**
+     * Sets color.
+     *
+     * @param color the color
+     */
     public void setColor(int color) {
         iconPaint.setColor(color);
         circlePaint.setColor(color);
         invalidateSelf();
     }
 
+    /**
+     * Sets transformation duration.
+     *
+     * @param duration the duration
+     */
     public void setTransformationDuration(int duration) {
         transformation.setDuration(duration);
     }
 
+    /**
+     * Sets pressed duration.
+     *
+     * @param duration the duration
+     */
     public void setPressedDuration(int duration) {
         pressedCircle.setDuration(duration);
     }
 
+    /**
+     * Sets interpolator.
+     *
+     * @param interpolator the interpolator
+     */
     public void setInterpolator(Interpolator interpolator) {
         transformation.setInterpolator(interpolator);
     }
 
+    /**
+     * Sets never draw touch.
+     *
+     * @param neverDrawTouch the never draw touch
+     */
     public void setNeverDrawTouch(boolean neverDrawTouch) {
         this.neverDrawTouch = neverDrawTouch;
     }
 
+    /**
+     * Sets icon state.
+     *
+     * @param iconState the icon state
+     */
     public void setIconState(IconState iconState) {
         synchronized (lock) {
             if (transformationRunning) {
@@ -611,6 +728,12 @@ public class MaterialMenuDrawable extends Drawable implements Animatable {
         }
     }
 
+    /**
+     * Animate icon state.
+     *
+     * @param state the state
+     * @param drawTouch the draw touch
+     */
     public void animateIconState(IconState state, boolean drawTouch) {
         synchronized (lock) {
             if (transformationRunning) {
@@ -652,19 +775,39 @@ public class MaterialMenuDrawable extends Drawable implements Animatable {
         }
     };
 
+    /**
+     * Gets transformation value.
+     *
+     * @return the transformation value
+     */
     public Float getTransformationValue() {
         return transformationValue;
     }
 
+    /**
+     * Sets transformation value.
+     *
+     * @param value the value
+     */
     public void setTransformationValue(Float value) {
         this.transformationValue = value;
         invalidateSelf();
     }
 
+    /**
+     * Gets pressed progress.
+     *
+     * @return the pressed progress
+     */
     public Float getPressedProgress() {
         return pressedProgressValue;
     }
 
+    /**
+     * Sets pressed progress.
+     *
+     * @param value the value
+     */
     public void setPressedProgress(Float value) {
         this.pressedProgressValue = value;
         circlePaint.setAlpha((int) (DEFAULT_CIRCLE_ALPHA * (1 - value / (circleRadius * 1.22f))));
@@ -823,6 +966,13 @@ public class MaterialMenuDrawable extends Drawable implements Animatable {
         }
     }
 
+    /**
+     * Dp to px.
+     *
+     * @param resources the resources
+     * @param dp the dp
+     * @return the float
+     */
     static float dpToPx(Resources resources, float dp) {
         return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, resources.getDisplayMetrics());
     }

@@ -29,6 +29,8 @@ import android.graphics.drawable.Drawable;
 import com.grottworkshop.gwsbaselibrary.R;
 
 /**
+ *
+ *
  * Created by fgrott on 10/7/2014.
  */
 public class FoldingCirclesDrawable extends Drawable implements Drawable.Callback {
@@ -60,12 +62,29 @@ public class FoldingCirclesDrawable extends Drawable implements Drawable.Callbac
     private boolean goesBackward;
 
     private enum ProgressStates {
+        /**
+         * The FOLDING_DOWN.
+         */
         FOLDING_DOWN,
+        /**
+         * The FOLDING_LEFT.
+         */
         FOLDING_LEFT,
+        /**
+         * The FOLDING_UP.
+         */
         FOLDING_UP,
+        /**
+         * The FOLDING_RIGHT.
+         */
         FOLDING_RIGHT
     }
 
+    /**
+     * Instantiates a new Folding circles drawable.
+     *
+     * @param colors the colors
+     */
     public FoldingCirclesDrawable(int[] colors) {
         initCirclesProgress(colors);
     }
@@ -259,9 +278,17 @@ public class FoldingCirclesDrawable extends Drawable implements Drawable.Callbac
         }
     }
 
+    /**
+     * The type Builder.
+     */
     public static class Builder {
         private int[] mColors;
 
+        /**
+         * Instantiates a new Builder.
+         *
+         * @param context the context
+         */
         public Builder(Context context){
             initDefaults(context);
         }
@@ -271,6 +298,12 @@ public class FoldingCirclesDrawable extends Drawable implements Drawable.Callbac
             mColors = context.getResources().getIntArray(R.array.google_colors);
         }
 
+        /**
+         * Colors builder.
+         *
+         * @param colors the colors
+         * @return the builder
+         */
         public Builder colors(int[] colors) {
             if (colors == null || colors.length == 0) {
                 throw new IllegalArgumentException("Your color array must contains at least 4 values");
@@ -280,6 +313,11 @@ public class FoldingCirclesDrawable extends Drawable implements Drawable.Callbac
             return this;
         }
 
+        /**
+         * Build drawable.
+         *
+         * @return the drawable
+         */
         public Drawable build() {
             return new FoldingCirclesDrawable(mColors);
         }

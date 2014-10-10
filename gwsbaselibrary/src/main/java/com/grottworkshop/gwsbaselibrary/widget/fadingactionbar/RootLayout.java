@@ -8,6 +8,7 @@ import android.widget.FrameLayout;
 import com.grottworkshop.gwsbaselibrary.R;
 
 /**
+ *
  * Created by fgrott on 10/9/2014.
  */
 public class RootLayout extends FrameLayout {
@@ -16,14 +17,32 @@ public class RootLayout extends FrameLayout {
     private View mListViewBackground;
     private boolean mInitialized = false;
 
+    /**
+     * Instantiates a new Root layout.
+     *
+     * @param context the context
+     */
     public RootLayout (Context context) {
         super(context);
     }
 
+    /**
+     * Instantiates a new Root layout.
+     *
+     * @param context the context
+     * @param attrs the attrs
+     */
     public RootLayout (Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
+    /**
+     * Instantiates a new Root layout.
+     *
+     * @param context the context
+     * @param attrs the attrs
+     * @param defStyle the def style
+     */
     public RootLayout (Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }

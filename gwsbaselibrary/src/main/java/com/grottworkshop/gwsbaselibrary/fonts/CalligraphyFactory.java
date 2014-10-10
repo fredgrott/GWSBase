@@ -34,6 +34,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+ *
+ *
  * Created by fgrott on 10/7/2014.
  */
 class CalligraphyFactory implements LayoutInflater.Factory {
@@ -85,7 +87,7 @@ class CalligraphyFactory implements LayoutInflater.Factory {
     /**
      * Use to match a view against a potential view id. Such as ActionBar title etc.
      *
-     * @param view    not null view you want to see has resource matching name.
+     * @param view not null view you want to see has resource matching name.
      * @param matches not null resource name to match against. Its not case sensitive.
      * @return true if matches false otherwise.
      */
@@ -99,6 +101,12 @@ class CalligraphyFactory implements LayoutInflater.Factory {
     private final LayoutInflater.Factory factory;
     private final int mAttributeId;
 
+    /**
+     * Instantiates a new Calligraphy factory.
+     *
+     * @param factory the factory
+     * @param attributeId the attribute id
+     */
     public CalligraphyFactory(LayoutInflater.Factory factory, int attributeId) {
         this.factory = factory;
         this.mAttributeId = attributeId;
@@ -127,6 +135,14 @@ class CalligraphyFactory implements LayoutInflater.Factory {
         return view;
     }
 
+    /**
+     * Create view or fail quietly.
+     *
+     * @param name the name
+     * @param context the context
+     * @param attrs the attrs
+     * @return the view
+     */
     protected View createViewOrFailQuietly(String name, Context context, AttributeSet attrs) {
         if (name.contains(".")) {
             return createViewOrFailQuietly(name, null, context, attrs);
@@ -143,6 +159,15 @@ class CalligraphyFactory implements LayoutInflater.Factory {
         return null;
     }
 
+    /**
+     * Create view or fail quietly.
+     *
+     * @param name the name
+     * @param prefix the prefix
+     * @param context the context
+     * @param attrs the attrs
+     * @return the view
+     */
     protected View createViewOrFailQuietly(String name, String prefix, Context context, AttributeSet attrs) {
         try {
             return LayoutInflater.from(context).createView(name, prefix, attrs);
@@ -151,6 +176,14 @@ class CalligraphyFactory implements LayoutInflater.Factory {
         }
     }
 
+    /**
+     * On view created.
+     *
+     * @param view the view
+     * @param name the name
+     * @param context the context
+     * @param attrs the attrs
+     */
     protected void onViewCreated(View view, String name, Context context, AttributeSet attrs) {
         if (view instanceof TextView) {
             // Try to get typeface attribute value

@@ -9,16 +9,37 @@ import android.widget.SimpleCursorAdapter;
 import java.util.List;
 
 /**
+ *
+ *
  * Created by fgrott on 10/7/2014.
  */
 public abstract class SimpleCursorSwipeAdapter extends SimpleCursorAdapter implements SwipeItemMangerInterface, SwipeAdapterInterface {
 
     private SwipeItemMangerImpl mItemManger = new SwipeItemMangerImpl(this);
 
+    /**
+     * Instantiates a new Simple cursor swipe adapter.
+     *
+     * @param context the context
+     * @param layout the layout
+     * @param c the c
+     * @param from the from
+     * @param to the to
+     * @param flags the flags
+     */
     protected SimpleCursorSwipeAdapter(Context context, int layout, Cursor c, String[] from, int[] to, int flags) {
         super(context, layout, c, from, to, flags);
     }
 
+    /**
+     * Instantiates a new Simple cursor swipe adapter.
+     *
+     * @param context the context
+     * @param layout the layout
+     * @param c the c
+     * @param from the from
+     * @param to the to
+     */
     protected SimpleCursorSwipeAdapter(Context context, int layout, Cursor c, String[] from, int[] to) {
         super(context, layout, c, from, to);
     }

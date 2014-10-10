@@ -25,6 +25,8 @@ import java.io.InputStreamReader;
 import java.io.Serializable;
 
 /**
+ *
+ *
  * Created by fgrott on 10/8/2014.
  */
 public abstract class License implements Serializable {
@@ -35,18 +37,51 @@ public abstract class License implements Serializable {
     private String mCachedSummaryText = null;
     private String mCachedFullText = null;
 
+    /**
+     * Gets name.
+     *
+     * @return the name
+     */
     public abstract String getName();
 
+    /**
+     * Read summary text from resources.
+     *
+     * @param context the context
+     * @return the string
+     */
     public abstract String readSummaryTextFromResources(final Context context);
 
+    /**
+     * Read full text from resources.
+     *
+     * @param context the context
+     * @return the string
+     */
     public abstract String readFullTextFromResources(final Context context);
 
+    /**
+     * Gets version.
+     *
+     * @return the version
+     */
     public abstract String getVersion();
 
+    /**
+     * Gets url.
+     *
+     * @return the url
+     */
     public abstract String getUrl();
 
     //
 
+    /**
+     * Gets summary text.
+     *
+     * @param context the context
+     * @return the summary text
+     */
     public final String getSummaryText(final Context context) {
         if (mCachedSummaryText == null) {
             mCachedSummaryText = readSummaryTextFromResources(context);
@@ -55,6 +90,12 @@ public abstract class License implements Serializable {
         return mCachedSummaryText;
     }
 
+    /**
+     * Gets full text.
+     *
+     * @param context the context
+     * @return the full text
+     */
     public final String getFullText(final Context context) {
         if (mCachedFullText == null) {
             mCachedFullText = readFullTextFromResources(context);
@@ -63,6 +104,13 @@ public abstract class License implements Serializable {
         return mCachedFullText;
     }
 
+    /**
+     * Gets content.
+     *
+     * @param context the context
+     * @param contentResourceId the content resource id
+     * @return the content
+     */
     protected String getContent(final Context context, final int contentResourceId) {
         BufferedReader reader = null;
         try {

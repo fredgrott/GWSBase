@@ -34,6 +34,8 @@ import android.view.animation.LinearInterpolator;
 import com.grottworkshop.gwsbaselibrary.R;
 
 /**
+ *
+ *
  * Created by fgrott on 10/7/2014.
  */
 public class NexusRotationCrossDrawable extends Drawable implements Drawable.Callback {
@@ -54,6 +56,11 @@ public class NexusRotationCrossDrawable extends Drawable implements Drawable.Cal
 
     private int mRotationAngle;
 
+    /**
+     * Instantiates a new Nexus rotation cross drawable.
+     *
+     * @param colors the colors
+     */
     public NexusRotationCrossDrawable(int[] colors) {
         mArrowPoints = new Point[5];
         mPath = new Path();
@@ -193,17 +200,35 @@ public class NexusRotationCrossDrawable extends Drawable implements Drawable.Cal
         return PixelFormat.TRANSLUCENT;
     }
 
+    /**
+     * Sets rotation angle.
+     *
+     * @param angle the angle
+     */
     void setRotationAngle(int angle) {
         mRotationAngle = angle;
     }
 
+    /**
+     * Gets rotation angle.
+     *
+     * @return the rotation angle
+     */
     int getRotationAngle() {
         return mRotationAngle;
     }
 
+    /**
+     * The type Builder.
+     */
     public static class Builder {
         private int[] mColors;
 
+        /**
+         * Instantiates a new Builder.
+         *
+         * @param context the context
+         */
         public Builder(Context context) {
             initDefaults(context);
         }
@@ -212,6 +237,12 @@ public class NexusRotationCrossDrawable extends Drawable implements Drawable.Cal
             mColors = context.getResources().getIntArray(R.array.google_colors);
         }
 
+        /**
+         * Colors builder.
+         *
+         * @param colors the colors
+         * @return the builder
+         */
         public Builder colors(int[] colors) {
             if (colors == null || colors.length != 4) {
                 throw new IllegalArgumentException("Your color array must contains 4 values");
@@ -221,6 +252,11 @@ public class NexusRotationCrossDrawable extends Drawable implements Drawable.Cal
             return this;
         }
 
+        /**
+         * Build drawable.
+         *
+         * @return the drawable
+         */
         public Drawable build() {
             return new NexusRotationCrossDrawable(mColors);
         }

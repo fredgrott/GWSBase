@@ -27,6 +27,8 @@ import android.support.v4.app.DialogFragment;
 import com.grottworkshop.gwsbaselibrary.R;
 
 /**
+ *
+ *
  * Created by fgrott on 10/8/2014.
  */
 public class LicensesDialogFragment extends DialogFragment {
@@ -52,47 +54,136 @@ public class LicensesDialogFragment extends DialogFragment {
 
     private DialogInterface.OnDismissListener mOnDismissListener;
 
+    /**
+     * New instance.
+     *
+     * @param rawNoticesResourceId the raw notices resource id
+     * @return the licenses dialog fragment
+     */
     public static LicensesDialogFragment newInstance(final int rawNoticesResourceId) {
         return newInstance(rawNoticesResourceId, false);
     }
 
+    /**
+     * New instance.
+     *
+     * @param rawNoticesResourceId the raw notices resource id
+     * @param showFullLicenseText the show full license text
+     * @return the licenses dialog fragment
+     */
     public static LicensesDialogFragment newInstance(final int rawNoticesResourceId, final boolean showFullLicenseText) {
         return newInstance(rawNoticesResourceId, showFullLicenseText, false);
     }
 
+    /**
+     * New instance.
+     *
+     * @param rawNoticesResourceId the raw notices resource id
+     * @param showFullLicenseText the show full license text
+     * @param includeOwnLicense the include own license
+     * @return the licenses dialog fragment
+     */
     public static LicensesDialogFragment newInstance(final int rawNoticesResourceId, final boolean showFullLicenseText, final boolean includeOwnLicense) {
         return newInstance(rawNoticesResourceId, showFullLicenseText, includeOwnLicense, 0);
     }
 
+    /**
+     * New instance.
+     *
+     * @param rawNoticesResourceId the raw notices resource id
+     * @param showFullLicenseText the show full license text
+     * @param includeOwnLicense the include own license
+     * @param themeResourceId the theme resource id
+     * @return the licenses dialog fragment
+     */
     public static LicensesDialogFragment newInstance(final int rawNoticesResourceId, final boolean showFullLicenseText, final boolean includeOwnLicense,
                                                      final int themeResourceId) {
         return newInstance(rawNoticesResourceId, showFullLicenseText, includeOwnLicense, themeResourceId, 0);
     }
 
+    /**
+     * New instance.
+     *
+     * @param rawNoticesResourceId the raw notices resource id
+     * @param showFullLicenseText the show full license text
+     * @param includeOwnLicense the include own license
+     * @param themeResourceId the theme resource id
+     * @param dividerColor the divider color
+     * @return the licenses dialog fragment
+     */
     public static LicensesDialogFragment newInstance(final int rawNoticesResourceId, final boolean showFullLicenseText, final boolean includeOwnLicense,
                                                      final int themeResourceId, final int dividerColor) {
         return newInstance(null, rawNoticesResourceId, showFullLicenseText, includeOwnLicense, themeResourceId, dividerColor);
     }
 
+    /**
+     * New instance.
+     *
+     * @param rawNoticesResourceId the raw notices resource id
+     * @param showFullLicenseText the show full license text
+     * @param includeOwnLicense the include own license
+     * @param themeResourceId the theme resource id
+     * @param dividerColorId the divider color id
+     * @param context the context
+     * @return the licenses dialog fragment
+     */
     public static LicensesDialogFragment newInstance(final int rawNoticesResourceId, final boolean showFullLicenseText, final boolean includeOwnLicense,
                                                      final int themeResourceId, final int dividerColorId, final Context context) {
         return newInstance(null, rawNoticesResourceId, showFullLicenseText, includeOwnLicense, themeResourceId, getColor(dividerColorId, context));
     }
 
+    /**
+     * New instance.
+     *
+     * @param notices the notices
+     * @param showFullLicenseText the show full license text
+     * @param includeOwnLicense the include own license
+     * @return the licenses dialog fragment
+     */
     public static LicensesDialogFragment newInstance(final Notices notices, final boolean showFullLicenseText, final boolean includeOwnLicense) {
         return newInstance(notices, showFullLicenseText, includeOwnLicense, 0);
     }
 
+    /**
+     * New instance.
+     *
+     * @param notices the notices
+     * @param showFullLicenseText the show full license text
+     * @param includeOwnLicense the include own license
+     * @param themeResourceId the theme resource id
+     * @return the licenses dialog fragment
+     */
     public static LicensesDialogFragment newInstance(final Notices notices, final boolean showFullLicenseText, final boolean includeOwnLicense,
                                                      final int themeResourceId) {
         return newInstance(notices, showFullLicenseText, includeOwnLicense, themeResourceId, 0);
     }
 
+    /**
+     * New instance.
+     *
+     * @param notices the notices
+     * @param showFullLicenseText the show full license text
+     * @param includeOwnLicense the include own license
+     * @param themeResourceId the theme resource id
+     * @param dividerColor the divider color
+     * @return the licenses dialog fragment
+     */
     public static LicensesDialogFragment newInstance(final Notices notices, final boolean showFullLicenseText, final boolean includeOwnLicense,
                                                      final int themeResourceId, final int dividerColor) {
         return newInstance(notices, -1, showFullLicenseText, includeOwnLicense, themeResourceId, dividerColor);
     }
 
+    /**
+     * New instance.
+     *
+     * @param notices the notices
+     * @param showFullLicenseText the show full license text
+     * @param includeOwnLicense the include own license
+     * @param themeResourceId the theme resource id
+     * @param dividerColorId the divider color id
+     * @param context the context
+     * @return the licenses dialog fragment
+     */
     public static LicensesDialogFragment newInstance(final Notices notices, final boolean showFullLicenseText, final boolean includeOwnLicense,
                                                      final int themeResourceId, final int dividerColorId, final Context context) {
         return newInstance(notices, -1, showFullLicenseText, includeOwnLicense, themeResourceId, getColor(dividerColorId, context));
@@ -119,6 +210,9 @@ public class LicensesDialogFragment extends DialogFragment {
         return context.getResources().getColor(dividerColorId);
     }
 
+    /**
+     * Instantiates a new Licenses dialog fragment.
+     */
     public LicensesDialogFragment() {
     }
 
@@ -212,10 +306,20 @@ public class LicensesDialogFragment extends DialogFragment {
 
     //
 
+    /**
+     * Gets on dismiss listener.
+     *
+     * @return the on dismiss listener
+     */
     public DialogInterface.OnDismissListener getOnDismissListener() {
         return mOnDismissListener;
     }
 
+    /**
+     * Sets on dismiss listener.
+     *
+     * @param onDismissListener the on dismiss listener
+     */
     public void setOnDismissListener(final DialogInterface.OnDismissListener onDismissListener) {
         mOnDismissListener = onDismissListener;
     }

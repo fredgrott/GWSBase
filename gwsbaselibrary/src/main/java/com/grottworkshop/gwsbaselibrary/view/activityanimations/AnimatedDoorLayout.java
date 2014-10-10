@@ -11,15 +11,26 @@ import android.view.ViewGroup;
 
 
 /**
+ *
+ *
  * Created by Flavient Laurent
  */
 public class AnimatedDoorLayout extends ViewGroup {
 
     private static final String TAG = "AnimatedDoorLayout";
 
+    /**
+     * The IS _ jBMR 2.
+     */
     static final boolean IS_JBMR2 = Build.VERSION.SDK_INT == Build.VERSION_CODES.JELLY_BEAN_MR2;
 
+    /**
+     * The constant HORIZONTAL_DOOR.
+     */
     public static final int HORIZONTAL_DOOR = 1;
+    /**
+     * The constant VERTICAL_DOOR.
+     */
     public static final int VERTICAL_DOOR = 2;
 
     private Rect mRect = new Rect();
@@ -33,26 +44,59 @@ public class AnimatedDoorLayout extends ViewGroup {
 
     private Bitmap mFullBitmap;
 
+    /**
+     * Instantiates a new Animated door layout.
+     *
+     * @param context the context
+     */
     public AnimatedDoorLayout(Context context) {
         super(context);
     }
 
+    /**
+     * Instantiates a new Animated door layout.
+     *
+     * @param context the context
+     * @param attrs the attrs
+     */
     public AnimatedDoorLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
+    /**
+     * Instantiates a new Animated door layout.
+     *
+     * @param context the context
+     * @param attrs the attrs
+     * @param defStyle the def style
+     */
     public AnimatedDoorLayout(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
 
+    /**
+     * Sets door type.
+     *
+     * @param doorType the door type
+     */
     public void setDoorType(int doorType) {
         mDoorType = doorType;
     }
 
+    /**
+     * Gets progress.
+     *
+     * @return the progress
+     */
     public float getProgress() {
         return mProgress;
     }
 
+    /**
+     * Sets progress.
+     *
+     * @param progress the progress
+     */
     public void setProgress(float progress) {
         mProgress = progress;
         invalidate();

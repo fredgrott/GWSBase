@@ -28,20 +28,46 @@ import static com.grottworkshop.gwsbaselibrary.widget.materialmenu.MaterialMenuD
 
 
 /**
+ *
+ *
  * Created by fgrott on 10/9/2014.
  */
 public  class MaterialMenuIcon extends MaterialMenuBase {
 
     private MaterialMenuDrawable drawable;
 
+    /**
+     * Instantiates a new Material menu icon.
+     *
+     * @param activity the activity
+     * @param color the color
+     * @param stroke the stroke
+     */
     public MaterialMenuIcon(Activity activity, int color, MaterialMenuDrawable.Stroke stroke) {
         this(activity, color, stroke, DEFAULT_TRANSFORM_DURATION, DEFAULT_PRESSED_DURATION);
     }
 
+    /**
+     * Instantiates a new Material menu icon.
+     *
+     * @param activity the activity
+     * @param color the color
+     * @param stroke the stroke
+     * @param transformDuration the transform duration
+     */
     public MaterialMenuIcon(Activity activity, int color, MaterialMenuDrawable.Stroke stroke, int transformDuration) {
         this(activity, color, stroke, transformDuration, DEFAULT_PRESSED_DURATION);
     }
 
+    /**
+     * Instantiates a new Material menu icon.
+     *
+     * @param activity the activity
+     * @param color the color
+     * @param stroke the stroke
+     * @param transformDuration the transform duration
+     * @param pressedDuration the pressed duration
+     */
     public MaterialMenuIcon(Activity activity, int color, MaterialMenuDrawable.Stroke stroke, int transformDuration, int pressedDuration) {
         drawable = new MaterialMenuDrawable(activity, color, stroke, DEFAULT_SCALE, transformDuration, pressedDuration);
         setupActionBar(activity);

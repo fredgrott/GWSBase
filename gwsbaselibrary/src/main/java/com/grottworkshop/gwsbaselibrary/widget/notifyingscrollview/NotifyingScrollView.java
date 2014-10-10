@@ -6,6 +6,7 @@ import android.util.AttributeSet;
 import android.widget.ScrollView;
 
 /**
+ * The type Notifying scroll view.
  * @author Cyril Mottier with modifications from Manuel Peinado
  * Created by fgrott on 10/9/2014.
  */
@@ -14,22 +15,50 @@ public class NotifyingScrollView extends ScrollView {
     private boolean mDisableEdgeEffects = true;
 
     /**
+     * The interface On scroll changed listener.
      * @author Cyril Mottier
      */
     public interface OnScrollChangedListener {
+        /**
+         * On scroll changed.
+         *
+         * @param who the who
+         * @param l the l
+         * @param t the t
+         * @param oldl the oldl
+         * @param oldt the oldt
+         */
         void onScrollChanged(ScrollView who, int l, int t, int oldl, int oldt);
     }
 
     private OnScrollChangedListener mOnScrollChangedListener;
 
+    /**
+     * Instantiates a new Notifying scroll view.
+     *
+     * @param context the context
+     */
     public NotifyingScrollView(Context context) {
         super(context);
     }
 
+    /**
+     * Instantiates a new Notifying scroll view.
+     *
+     * @param context the context
+     * @param attrs the attrs
+     */
     public NotifyingScrollView(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
+    /**
+     * Instantiates a new Notifying scroll view.
+     *
+     * @param context the context
+     * @param attrs the attrs
+     * @param defStyle the def style
+     */
     public NotifyingScrollView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
@@ -42,6 +71,11 @@ public class NotifyingScrollView extends ScrollView {
         }
     }
 
+    /**
+     * Sets on scroll changed listener.
+     *
+     * @param listener the listener
+     */
     public void setOnScrollChangedListener(OnScrollChangedListener listener) {
         mOnScrollChangedListener = listener;
     }

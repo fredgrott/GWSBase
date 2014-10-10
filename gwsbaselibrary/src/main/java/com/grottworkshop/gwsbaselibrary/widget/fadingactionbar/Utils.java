@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.WindowManager;
 
 /**
+ *
  * Created by fgrott on 10/9/2014.
  */
 public class Utils {

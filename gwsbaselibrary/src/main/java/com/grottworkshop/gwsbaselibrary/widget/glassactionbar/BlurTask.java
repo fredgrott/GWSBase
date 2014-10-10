@@ -7,9 +7,14 @@ import android.os.AsyncTask;
 import android.util.Log;
 
 /**
+ *
+ *
  * Created by fgrott on 10/9/2014.
  */
 public class BlurTask {
+    /**
+     * The constant TAG.
+     */
     protected static final String TAG = "BlurTask";
     private Bitmap source;
     private Canvas canvas;
@@ -19,14 +24,35 @@ public class BlurTask {
     private Context context;
     private int radius;
 
+    /**
+     * The interface Listener.
+     */
     public interface Listener {
+        /**
+         * On blur operation finished.
+         */
         void onBlurOperationFinished();
     }
 
+    /**
+     * Instantiates a new Blur task.
+     *
+     * @param context the context
+     * @param listener the listener
+     * @param source the source
+     */
     public BlurTask(Context context, Listener listener, Bitmap source) {
         this(context, listener, source, GlassActionBar.DEFAULT_BLUR_RADIUS);
     }
 
+    /**
+     * Instantiates a new Blur task.
+     *
+     * @param context the context
+     * @param listener the listener
+     * @param source the source
+     * @param radius the radius
+     */
     public BlurTask(Context context, Listener listener, Bitmap source, int radius) {
         this.context = context;
         this.listener = listener;
@@ -66,6 +92,9 @@ public class BlurTask {
         if (GlassActionBar.verbose) Log.v("BlurTask", "Blurring took " + delta / 1e6f + " ms");
     }
 
+    /**
+     * Cancel void.
+     */
     public void cancel() {
         if (task != null) {
             task.cancel(true);

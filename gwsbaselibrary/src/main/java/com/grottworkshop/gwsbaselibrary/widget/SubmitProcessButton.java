@@ -29,18 +29,38 @@ import android.graphics.Canvas;
 import android.util.AttributeSet;
 
 /**
+ *
+ *
  * Created by fgrott on 10/7/2014.
  */
 public class SubmitProcessButton extends ProcessButton {
 
+    /**
+     * Instantiates a new Submit process button.
+     *
+     * @param context the context
+     */
     public SubmitProcessButton(Context context) {
         super(context);
     }
 
+    /**
+     * Instantiates a new Submit process button.
+     *
+     * @param context the context
+     * @param attrs the attrs
+     */
     public SubmitProcessButton(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
+    /**
+     * Instantiates a new Submit process button.
+     *
+     * @param context the context
+     * @param attrs the attrs
+     * @param defStyle the def style
+     */
     public SubmitProcessButton(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }

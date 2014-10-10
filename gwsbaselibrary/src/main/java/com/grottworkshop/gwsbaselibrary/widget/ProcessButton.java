@@ -34,6 +34,8 @@ import android.util.AttributeSet;
 import com.grottworkshop.gwsbaselibrary.R;
 
 /**
+ *
+ *
  * Created by fgrott on 10/7/2014.
  */
 public abstract class ProcessButton extends FlatButton {
@@ -50,16 +52,34 @@ public abstract class ProcessButton extends FlatButton {
     private CharSequence mCompleteText;
     private CharSequence mErrorText;
 
+    /**
+     * Instantiates a new Process button.
+     *
+     * @param context the context
+     * @param attrs the attrs
+     * @param defStyle the def style
+     */
     public ProcessButton(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         init(context, attrs);
     }
 
+    /**
+     * Instantiates a new Process button.
+     *
+     * @param context the context
+     * @param attrs the attrs
+     */
     public ProcessButton(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(context, attrs);
     }
 
+    /**
+     * Instantiates a new Process button.
+     *
+     * @param context the context
+     */
     public ProcessButton(Context context) {
         super(context);
         init(context, null);
@@ -112,6 +132,11 @@ public abstract class ProcessButton extends FlatButton {
         }
     }
 
+    /**
+     * Sets progress.
+     *
+     * @param progress the progress
+     */
     public void setProgress(int progress) {
         mProgress = progress;
 
@@ -128,6 +153,9 @@ public abstract class ProcessButton extends FlatButton {
         invalidate();
     }
 
+    /**
+     * On error state.
+     */
     protected void onErrorState() {
         if(getErrorText() != null) {
             setText(getErrorText());
@@ -135,6 +163,9 @@ public abstract class ProcessButton extends FlatButton {
         setBackgroundCompat(getErrorDrawable());
     }
 
+    /**
+     * On progress.
+     */
     protected void onProgress() {
         if(getLoadingText() != null) {
             setText(getLoadingText());
@@ -142,6 +173,9 @@ public abstract class ProcessButton extends FlatButton {
         setBackgroundCompat(getNormalDrawable());
     }
 
+    /**
+     * On complete state.
+     */
     protected void onCompleteState() {
         if(getCompleteText() != null) {
             setText(getCompleteText());
@@ -149,6 +183,9 @@ public abstract class ProcessButton extends FlatButton {
         setBackgroundCompat(getCompleteDrawable());
     }
 
+    /**
+     * On normal state.
+     */
     protected void onNormalState() {
         if(getNormalText() != null) {
             setText(getNormalText());
@@ -166,64 +203,144 @@ public abstract class ProcessButton extends FlatButton {
         super.onDraw(canvas);
     }
 
+    /**
+     * Draw progress.
+     *
+     * @param canvas the canvas
+     */
     public abstract void drawProgress(Canvas canvas);
 
+    /**
+     * Gets progress.
+     *
+     * @return the progress
+     */
     public int getProgress() {
         return mProgress;
     }
 
+    /**
+     * Gets max progress.
+     *
+     * @return the max progress
+     */
     public int getMaxProgress() {
         return mMaxProgress;
     }
 
+    /**
+     * Gets min progress.
+     *
+     * @return the min progress
+     */
     public int getMinProgress() {
         return mMinProgress;
     }
 
+    /**
+     * Gets progress drawable.
+     *
+     * @return the progress drawable
+     */
     public GradientDrawable getProgressDrawable() {
         return mProgressDrawable;
     }
 
+    /**
+     * Gets complete drawable.
+     *
+     * @return the complete drawable
+     */
     public GradientDrawable getCompleteDrawable() {
         return mCompleteDrawable;
     }
 
+    /**
+     * Gets loading text.
+     *
+     * @return the loading text
+     */
     public CharSequence getLoadingText() {
         return mLoadingText;
     }
 
+    /**
+     * Gets complete text.
+     *
+     * @return the complete text
+     */
     public CharSequence getCompleteText() {
         return mCompleteText;
     }
 
+    /**
+     * Sets progress drawable.
+     *
+     * @param progressDrawable the progress drawable
+     */
     public void setProgressDrawable(GradientDrawable progressDrawable) {
         mProgressDrawable = progressDrawable;
     }
 
+    /**
+     * Sets complete drawable.
+     *
+     * @param completeDrawable the complete drawable
+     */
     public void setCompleteDrawable(GradientDrawable completeDrawable) {
         mCompleteDrawable = completeDrawable;
     }
 
+    /**
+     * Sets loading text.
+     *
+     * @param loadingText the loading text
+     */
     public void setLoadingText(CharSequence loadingText) {
         mLoadingText = loadingText;
     }
 
+    /**
+     * Sets complete text.
+     *
+     * @param completeText the complete text
+     */
     public void setCompleteText(CharSequence completeText) {
         mCompleteText = completeText;
     }
 
+    /**
+     * Gets error drawable.
+     *
+     * @return the error drawable
+     */
     public GradientDrawable getErrorDrawable() {
         return mErrorDrawable;
     }
 
+    /**
+     * Sets error drawable.
+     *
+     * @param errorDrawable the error drawable
+     */
     public void setErrorDrawable(GradientDrawable errorDrawable) {
         mErrorDrawable = errorDrawable;
     }
 
+    /**
+     * Gets error text.
+     *
+     * @return the error text
+     */
     public CharSequence getErrorText() {
         return mErrorText;
     }
 
+    /**
+     * Sets error text.
+     *
+     * @param errorText the error text
+     */
     public void setErrorText(CharSequence errorText) {
         mErrorText = errorText;
     }
@@ -257,6 +374,11 @@ public abstract class ProcessButton extends FlatButton {
 
         private int mProgress;
 
+        /**
+         * Instantiates a new Saved state.
+         *
+         * @param parcel the parcel
+         */
         public SavedState(Parcelable parcel) {
             super(parcel);
         }
@@ -272,6 +394,9 @@ public abstract class ProcessButton extends FlatButton {
             out.writeInt(mProgress);
         }
 
+        /**
+         * The constant CREATOR.
+         */
         public static final Creator<SavedState> CREATOR = new Creator<SavedState>() {
 
             @Override

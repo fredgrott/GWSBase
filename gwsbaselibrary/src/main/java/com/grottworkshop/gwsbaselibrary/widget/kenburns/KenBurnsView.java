@@ -18,6 +18,8 @@ import com.grottworkshop.gwsbaselibrary.R;
 import java.util.Random;
 
 /**
+ *
+ *
  * Created by f.laurent on 21/11/13.
  */
 public class KenBurnsView extends FrameLayout {
@@ -44,19 +46,42 @@ public class KenBurnsView extends FrameLayout {
         }
     };
 
+    /**
+     * Instantiates a new Ken burns view.
+     *
+     * @param context the context
+     */
     public KenBurnsView(Context context) {
         this(context, null);
     }
 
+    /**
+     * Instantiates a new Ken burns view.
+     *
+     * @param context the context
+     * @param attrs the attrs
+     */
     public KenBurnsView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
+    /**
+     * Instantiates a new Ken burns view.
+     *
+     * @param context the context
+     * @param attrs the attrs
+     * @param defStyle the def style
+     */
     public KenBurnsView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         mHandler = new Handler();
     }
 
+    /**
+     * Sets resource ids.
+     *
+     * @param resourceIds the resource ids
+     */
     public void setResourceIds(int... resourceIds) {
         mResourceIds = resourceIds;
         fillImageViews();
@@ -107,6 +132,11 @@ public class KenBurnsView extends FrameLayout {
         return value * (ratio - 1.0f) * (this.random.nextFloat() - 0.5f);
     }
 
+    /**
+     * Animate void.
+     *
+     * @param view the view
+     */
     public void animate(View view) {
         float fromScale = pickScale();
         float toScale = pickScale();

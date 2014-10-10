@@ -7,10 +7,15 @@ import android.widget.BaseAdapter;
 import java.util.List;
 
 /**
+ *
+ *
  * Created by fgrott on 10/7/2014.
  */
 public abstract class BaseSwipeAdapter extends BaseAdapter implements SwipeItemMangerInterface, SwipeAdapterInterface {
 
+    /**
+     * The M item manger.
+     */
     protected SwipeItemMangerImpl mItemManger = new SwipeItemMangerImpl(this);
 
     /**
@@ -25,16 +30,16 @@ public abstract class BaseSwipeAdapter extends BaseAdapter implements SwipeItemM
      * Never bind SwipeListener or fill values here, every item has a chance to fill value or bind
      * listeners in fillValues.
      * to fill it in {@code fillValues} method.
-     * @param position
-     * @param parent
-     * @return
+     * @param position the position
+     * @param parent the parent
+     * @return view
      */
     public abstract View generateView(int position, ViewGroup parent);
 
     /**
      * fill values or bind listeners to the view.
-     * @param position
-     * @param convertView
+     * @param position the position
+     * @param convertView the convert view
      */
     public abstract void fillValues(int position, View convertView);
 

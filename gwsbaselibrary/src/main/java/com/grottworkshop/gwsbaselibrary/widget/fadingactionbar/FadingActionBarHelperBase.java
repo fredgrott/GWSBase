@@ -40,10 +40,15 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 /**
+ *
+ *
  * Created by fgrott on 10/9/2014.
  */
 @SuppressWarnings("unchecked")
 public abstract class FadingActionBarHelperBase {
+    /**
+     * The constant TAG.
+     */
     protected static final String TAG = "FadingActionBarHelper";
     private Drawable mActionBarBackgroundDrawable;
     private FrameLayout mHeaderContainer;
@@ -63,60 +68,142 @@ public abstract class FadingActionBarHelperBase {
     private FrameLayout mMarginView;
     private View mListViewBackgroundView;
 
+    /**
+     * Action bar background.
+     *
+     * @param <T>  the type parameter
+     * @param drawableResId the drawable res id
+     * @return the t
+     */
     public final <T extends FadingActionBarHelperBase> T actionBarBackground(int drawableResId) {
         mActionBarBackgroundResId = drawableResId;
         return (T)this;
     }
 
+    /**
+     * Action bar background.
+     *
+     * @param <T>  the type parameter
+     * @param drawable the drawable
+     * @return the t
+     */
     public final <T extends FadingActionBarHelperBase> T actionBarBackground(Drawable drawable) {
         mActionBarBackgroundDrawable = drawable;
         return (T)this;
     }
 
+    /**
+     * Header layout.
+     *
+     * @param <T>  the type parameter
+     * @param layoutResId the layout res id
+     * @return the t
+     */
     public final <T extends FadingActionBarHelperBase> T headerLayout(int layoutResId) {
         mHeaderLayoutResId = layoutResId;
         return (T)this;
     }
 
+    /**
+     * Header view.
+     *
+     * @param <T>  the type parameter
+     * @param view the view
+     * @return the t
+     */
     public final <T extends FadingActionBarHelperBase> T headerView(View view) {
         mHeaderView = view;
         return (T)this;
     }
 
+    /**
+     * Header overlay layout.
+     *
+     * @param <T>  the type parameter
+     * @param layoutResId the layout res id
+     * @return the t
+     */
     public final <T extends FadingActionBarHelperBase> T headerOverlayLayout(int layoutResId) {
         mHeaderOverlayLayoutResId = layoutResId;
         return (T)this;
     }
 
+    /**
+     * Header overlay view.
+     *
+     * @param <T>  the type parameter
+     * @param view the view
+     * @return the t
+     */
     public final <T extends FadingActionBarHelperBase> T headerOverlayView(View view) {
         mHeaderOverlayView = view;
         return (T)this;
     }
 
+    /**
+     * Content layout.
+     *
+     * @param <T>  the type parameter
+     * @param layoutResId the layout res id
+     * @return the t
+     */
     public final <T extends FadingActionBarHelperBase> T contentLayout(int layoutResId) {
         mContentLayoutResId = layoutResId;
         return (T)this;
     }
 
+    /**
+     * Content view.
+     *
+     * @param <T>  the type parameter
+     * @param view the view
+     * @return the t
+     */
     public final <T extends FadingActionBarHelperBase> T  contentView(View view) {
         mContentView = view;
         return (T)this;
     }
 
+    /**
+     * Light action bar.
+     *
+     * @param <T>  the type parameter
+     * @param value the value
+     * @return the t
+     */
     public final <T extends FadingActionBarHelperBase> T lightActionBar(boolean value) {
         mLightActionBar = value;
         return (T)this;
     }
 
+    /**
+     * Parallax t.
+     *
+     * @param <T>  the type parameter
+     * @param value the value
+     * @return the t
+     */
     public final <T extends FadingActionBarHelperBase> T  parallax(boolean value) {
         mUseParallax = value;
         return (T)this;
     }
 
+    /**
+     * Create view.
+     *
+     * @param context the context
+     * @return the view
+     */
     public final View createView(Context context) {
         return createView(LayoutInflater.from(context));
     }
 
+    /**
+     * Create view.
+     *
+     * @param inflater the inflater
+     * @return the view
+     */
     public final View createView(LayoutInflater inflater) {
         //
         // Prepare everything
@@ -169,6 +256,11 @@ public abstract class FadingActionBarHelperBase {
         return root;
     }
 
+    /**
+     * Init action bar.
+     *
+     * @param activity the activity
+     */
     public void initActionBar(Activity activity) {
         if (mActionBarBackgroundDrawable == null) {
             mActionBarBackgroundDrawable = activity.getResources().getDrawable(mActionBarBackgroundResId);
@@ -180,10 +272,34 @@ public abstract class FadingActionBarHelperBase {
         mActionBarBackgroundDrawable.setAlpha(0);
     }
 
+    /**
+     * Gets action bar height.
+     *
+     * @return the action bar height
+     */
     protected abstract int getActionBarHeight();
+
+    /**
+     * Is action bar null.
+     *
+     * @return the boolean
+     */
     protected abstract boolean isActionBarNull();
+
+    /**
+     * Sets action bar background drawable.
+     *
+     * @param drawable the drawable
+     */
     protected abstract void setActionBarBackgroundDrawable(Drawable drawable);
 
+    /**
+     * Gets action bar with reflection.
+     *
+     * @param activity the activity
+     * @param methodName the method name
+     * @return the action bar with reflection
+     */
     protected <T> T getActionBarWithReflection(Activity activity, String methodName) {
         try {
             Method method = activity.getClass().getMethod(methodName);

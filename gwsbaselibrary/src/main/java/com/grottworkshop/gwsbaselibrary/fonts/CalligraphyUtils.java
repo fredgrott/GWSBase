@@ -33,6 +33,8 @@ import android.util.TypedValue;
 import android.widget.TextView;
 
 /**
+ *
+ *
  * Created by fgrott on 10/7/2014.
  */
 public final class CalligraphyUtils {
@@ -40,7 +42,7 @@ public final class CalligraphyUtils {
     /**
      * Applies a custom typeface span to the text.
      *
-     * @param s        text to apply it too.
+     * @param s text to apply it too.
      * @param typeface typeface to apply.
      * @return Either the passed in Object or new Spannable with the typeface span applied.
      */
@@ -80,7 +82,7 @@ public final class CalligraphyUtils {
      * @param typeface Not null, Typeface to apply to the TextView.
      * @param deferred If true we use Typefaces and TextChange listener to make sure font is always
      *                 applied, but this sometimes conflicts with other
-     *                 {@link android.text.Spannable}'s.
+     *'s.
      * @return true if applied otherwise false.
      * @see #applyFontToTextView(android.widget.TextView, android.graphics.Typeface)
      */
@@ -112,7 +114,7 @@ public final class CalligraphyUtils {
      * Useful for manually fonts to a TextView. Will not default back to font
      * set in {@link CalligraphyConfig}
      *
-     * @param context  Context
+     * @param context Context
      * @param textView Not null, TextView to apply to.
      * @param filePath if null/empty will do nothing.
      * @return true if fonts been applied
@@ -121,6 +123,15 @@ public final class CalligraphyUtils {
         return applyFontToTextView(context, textView, filePath, false);
     }
 
+    /**
+     * Apply font to text view.
+     *
+     * @param context the context
+     * @param textView the text view
+     * @param filePath the file path
+     * @param deferred the deferred
+     * @return the boolean
+     */
     static boolean applyFontToTextView(final Context context, final TextView textView, final String filePath, boolean deferred) {
         if (textView == null || context == null) return false;
         final AssetManager assetManager = context.getAssets();
@@ -128,10 +139,25 @@ public final class CalligraphyUtils {
         return applyFontToTextView(textView, typeface, deferred);
     }
 
+    /**
+     * Apply font to text view.
+     *
+     * @param context the context
+     * @param textView the text view
+     * @param config the config
+     */
     static void applyFontToTextView(final Context context, final TextView textView, final CalligraphyConfig config) {
         applyFontToTextView(context, textView, config, false);
     }
 
+    /**
+     * Apply font to text view.
+     *
+     * @param context the context
+     * @param textView the text view
+     * @param config the config
+     * @param deferred the deferred
+     */
     static void applyFontToTextView(final Context context, final TextView textView, final CalligraphyConfig config, boolean deferred) {
         if (context == null || textView == null || config == null) return;
         if (!config.isFontSet()) return;
@@ -141,9 +167,9 @@ public final class CalligraphyUtils {
     /**
      * Applies font to TextView. Will fall back to the default one if not set.
      *
-     * @param context      context
-     * @param textView     textView to apply to.
-     * @param config       Default Config
+     * @param context context
+     * @param textView textView to apply to.
+     * @param config Default Config
      * @param textViewFont nullable, will use Default Config if null or fails to find the
      *                     defined font.
      */
@@ -151,6 +177,15 @@ public final class CalligraphyUtils {
         applyFontToTextView(context, textView, config, textViewFont, false);
     }
 
+    /**
+     * Apply font to text view.
+     *
+     * @param context the context
+     * @param textView the text view
+     * @param config the config
+     * @param textViewFont the text view font
+     * @param deferred the deferred
+     */
     static void applyFontToTextView(final Context context, final TextView textView, final CalligraphyConfig config, final String textViewFont, boolean deferred) {
         if (context == null || textView == null || config == null) return;
         if (!TextUtils.isEmpty(textViewFont) && applyFontToTextView(context, textView, textViewFont, deferred)) {
@@ -162,8 +197,8 @@ public final class CalligraphyUtils {
     /**
      * Tries to pull the Custom Attribute directly from the TextView.
      *
-     * @param context     Activity Context
-     * @param attrs       View Attributes
+     * @param context Activity Context
+     * @param attrs View Attributes
      * @param attributeId if -1 returns null.
      * @return null if attribute is not defined or added to View
      */
@@ -189,8 +224,8 @@ public final class CalligraphyUtils {
      * Tries to pull the Font Path from the View Style as this is the next decendent after being
      * defined in the View's xml.
      *
-     * @param context     Activity Activity Context
-     * @param attrs       View Attributes
+     * @param context Activity Activity Context
+     * @param attrs View Attributes
      * @param attributeId if -1 returns null.
      * @return null if attribute is not defined or found in the Style
      */
@@ -217,8 +252,8 @@ public final class CalligraphyUtils {
     /**
      * Tries to pull the Font Path from the Text Appearance.
      *
-     * @param context     Activity Context
-     * @param attrs       View Attributes
+     * @param context Activity Context
+     * @param attrs View Attributes
      * @param attributeId if -1 returns null.
      * @return returns null if attribute is not defined or if no TextAppearance is found.
      */
@@ -257,7 +292,7 @@ public final class CalligraphyUtils {
     /**
      * Last but not least, try to pull the Font Path from the Theme, which is defined.
      *
-     * @param context     Activity Context
+     * @param context Activity Context
      * @param styleAttrId Theme style id
      * @param attributeId if -1 returns null.
      * @return null if no theme or attribute defined.
@@ -285,10 +320,10 @@ public final class CalligraphyUtils {
     /**
      * Last but not least, try to pull the Font Path from the Theme, which is defined.
      *
-     * @param context        Activity Context
-     * @param styleAttrId    Theme style id
+     * @param context Activity Context
+     * @param styleAttrId Theme style id
      * @param subStyleAttrId the sub style from the theme to look up after the first style
-     * @param attributeId    if -1 returns null.
+     * @param attributeId if -1 returns null.
      * @return null if no theme or attribute defined.
      */
     static String pullFontPathFromTheme(Context context, int styleAttrId, int subStyleAttrId, int attributeId) {

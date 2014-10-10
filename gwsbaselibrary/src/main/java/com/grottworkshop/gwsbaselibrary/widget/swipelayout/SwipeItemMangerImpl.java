@@ -10,20 +10,42 @@ import java.util.List;
 import java.util.Set;
 
 /**
+ *
+ *
  * Created by fgrott on 10/7/2014.
  */
 public class SwipeItemMangerImpl implements SwipeItemMangerInterface {
 
     private Mode mode = Mode.Single;
+    /**
+     * The INVALID _ pOSITION.
+     */
     public final int INVALID_POSITION = -1;
 
+    /**
+     * The M open position.
+     */
     protected int mOpenPosition = INVALID_POSITION;
 
+    /**
+     * The M open positions.
+     */
     protected Set<Integer> mOpenPositions = new HashSet<Integer>();
+    /**
+     * The M shown layouts.
+     */
     protected Set<SwipeLayout> mShownLayouts = new HashSet<SwipeLayout>();
 
+    /**
+     * The M adapter.
+     */
     protected BaseAdapter mAdapter;
 
+    /**
+     * Instantiates a new Swipe item manger impl.
+     *
+     * @param adapter the adapter
+     */
     public SwipeItemMangerImpl(BaseAdapter adapter) {
         if(adapter == null)
             throw new IllegalArgumentException("Adapter can not be null");
@@ -34,8 +56,17 @@ public class SwipeItemMangerImpl implements SwipeItemMangerInterface {
         this.mAdapter = adapter;
     }
 
+    /**
+     * The enum Mode.
+     */
     public enum Mode{
-        Single, Multiple
+        /**
+         * The Single.
+         */
+        Single, /**
+         * The Multiple.
+         */
+        Multiple
     };
 
     public Mode getMode(){
@@ -49,6 +80,12 @@ public class SwipeItemMangerImpl implements SwipeItemMangerInterface {
         mOpenPosition = INVALID_POSITION;
     }
 
+    /**
+     * Initialize void.
+     *
+     * @param target the target
+     * @param position the position
+     */
     public void initialize(View target, int position) {
         int resId = getSwipeLayoutId(position);
 
@@ -65,6 +102,12 @@ public class SwipeItemMangerImpl implements SwipeItemMangerInterface {
         mShownLayouts.add(swipeLayout);
     }
 
+    /**
+     * Update convert view.
+     *
+     * @param target the target
+     * @param position the position
+     */
     public void updateConvertView(View target, int position) {
         int resId = getSwipeLayoutId(position);
 
@@ -140,11 +183,30 @@ public class SwipeItemMangerImpl implements SwipeItemMangerInterface {
         }
     }
 
+    /**
+     * The type Value box.
+     */
     class ValueBox {
+        /**
+         * The On layout listener.
+         */
         OnLayoutListener onLayoutListener;
+        /**
+         * The Swipe memory.
+         */
         SwipeMemory swipeMemory;
+        /**
+         * The Position.
+         */
         int position;
 
+        /**
+         * Instantiates a new Value box.
+         *
+         * @param position the position
+         * @param swipeMemory the swipe memory
+         * @param onLayoutListener the on layout listener
+         */
         ValueBox(int position, SwipeMemory swipeMemory, OnLayoutListener onLayoutListener) {
             this.swipeMemory = swipeMemory;
             this.onLayoutListener = onLayoutListener;
@@ -152,14 +214,27 @@ public class SwipeItemMangerImpl implements SwipeItemMangerInterface {
         }
     }
 
+    /**
+     * The type On layout listener.
+     */
     class OnLayoutListener implements SwipeLayout.OnLayout{
 
         private int position;
 
+        /**
+         * Instantiates a new On layout listener.
+         *
+         * @param position the position
+         */
         OnLayoutListener(int position) {
             this.position = position;
         }
 
+        /**
+         * Set position.
+         *
+         * @param position the position
+         */
         public void setPosition(int position){
             this.position = position;
         }
@@ -175,10 +250,18 @@ public class SwipeItemMangerImpl implements SwipeItemMangerInterface {
 
     }
 
+    /**
+     * The type Swipe memory.
+     */
     class SwipeMemory extends SimpleSwipeListener {
 
         private int position;
 
+        /**
+         * Instantiates a new Swipe memory.
+         *
+         * @param position the position
+         */
         SwipeMemory(int position) {
             this.position = position;
         }
@@ -209,6 +292,11 @@ public class SwipeItemMangerImpl implements SwipeItemMangerInterface {
             }
         }
 
+        /**
+         * Set position.
+         *
+         * @param position the position
+         */
         public void setPosition(int position){
             this.position = position;
         }

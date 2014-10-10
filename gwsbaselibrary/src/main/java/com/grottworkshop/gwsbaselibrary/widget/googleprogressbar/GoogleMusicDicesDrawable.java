@@ -31,6 +31,8 @@ import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Interpolator;
 
 /**
+ *
+ *
  * Created by fgrott on 10/7/2014.
  */
 public class GoogleMusicDicesDrawable extends Drawable implements Drawable.Callback {
@@ -53,18 +55,47 @@ public class GoogleMusicDicesDrawable extends Drawable implements Drawable.Callb
     private int mDiceState;
 
     private enum DiceSide {
+        /**
+         * The ONE.
+         */
         ONE,
+        /**
+         * The TWO.
+         */
         TWO,
+        /**
+         * The THREE.
+         */
         THREE,
+        /**
+         * The FOUR.
+         */
         FOUR,
+        /**
+         * The FIVE.
+         */
         FIVE,
+        /**
+         * The SIX.
+         */
         SIX
     }
 
     private enum DiceRotation {
+        /**
+         * The LEFT.
+         */
         LEFT,
+        /**
+         * The DOWN.
+         */
         DOWN;
 
+        /**
+         * Invert dice rotation.
+         *
+         * @return the dice rotation
+         */
         DiceRotation invert() {
             return this == LEFT ? DOWN : LEFT;
         }
@@ -73,12 +104,22 @@ public class GoogleMusicDicesDrawable extends Drawable implements Drawable.Callb
     private class DiceState {
         private DiceSide side1;
         private DiceSide side2;
+
+        /**
+         * Instantiates a new Dice state.
+         *
+         * @param side1 the side 1
+         * @param side2 the side 2
+         */
         DiceState(DiceSide side1, DiceSide side2) {
             this.side1 = side1;
             this.side2 = side2;
         }
     }
 
+    /**
+     * Instantiates a new Google music dices drawable.
+     */
     public GoogleMusicDicesDrawable() {
         init();
     }
@@ -261,15 +302,33 @@ public class GoogleMusicDicesDrawable extends Drawable implements Drawable.Callb
         }
     }
 
+    /**
+     * Gets scale.
+     *
+     * @return the scale
+     */
     float getScale() {
         return mScale;
     }
 
+    /**
+     * Sets scale.
+     *
+     * @param scale the scale
+     */
     void setScale(float scale) {
         this.mScale = scale;
     }
 
+    /**
+     * The type Builder.
+     */
     public static class Builder {
+        /**
+         * Build drawable.
+         *
+         * @return the drawable
+         */
         public Drawable build() {
             return new GoogleMusicDicesDrawable();
         }

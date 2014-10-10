@@ -17,23 +17,58 @@
 package com.grottworkshop.gwsbaselibrary.widget.glassactionbar;
 
 /**
+ *
+ *
  * Created by fgrott on 10/9/2014.
  */
 public class GlassActionBar {
+    /**
+     * The constant verbose.
+     */
     public static boolean verbose = false;
 
+    /**
+     * The constant DEFAULT_BLUR_RADIUS.
+     */
     public static final int DEFAULT_BLUR_RADIUS = 7;
+    /**
+     * The constant MIN_BLUR_RADIUS.
+     */
     public static final int MIN_BLUR_RADIUS = 1;
+    /**
+     * The constant MAX_BLUR_RADIUS.
+     */
     public static final int MAX_BLUR_RADIUS = 20;
 
+    /**
+     * The constant DEFAULT_DOWNSAMPLING.
+     */
     public static final int DEFAULT_DOWNSAMPLING = 5;
+    /**
+     * The constant MIN_DOWNSAMPLING.
+     */
     public static final int MIN_DOWNSAMPLING = 1;
+    /**
+     * The constant MAX_DOWNSAMPLING.
+     */
     public static final int MAX_DOWNSAMPLING = 6;
 
+    /**
+     * Is valid blur radius.
+     *
+     * @param value the value
+     * @return the boolean
+     */
     public static boolean isValidBlurRadius(int value) {
         return value >= MIN_BLUR_RADIUS && value <= MAX_BLUR_RADIUS;
     }
 
+    /**
+     * Is valid downsampling.
+     *
+     * @param value the value
+     * @return the boolean
+     */
     public static boolean isValidDownsampling(int value) {
         return value >= MIN_DOWNSAMPLING && value <= MAX_DOWNSAMPLING;
     }

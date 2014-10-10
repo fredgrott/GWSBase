@@ -21,6 +21,8 @@ import android.content.ContextWrapper;
 import android.view.LayoutInflater;
 
 /**
+ *
+ *
  * Created by fgrott on 10/7/2014.
  */
 public class CalligraphyContextWrapper extends ContextWrapper {
@@ -51,7 +53,7 @@ public class CalligraphyContextWrapper extends ContextWrapper {
      * {@link CalligraphyConfig} make sure this is initialised before
      * the activity is created.
      *
-     * @param base        ContextBase to Wrap
+     * @param base ContextBase to Wrap
      * @param attributeId Attribute to lookup.
      */
     public CalligraphyContextWrapper(Context base, int attributeId) {

@@ -21,13 +21,27 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 /**
+ *
+ *
  * Created by fgrott on 10/8/2014.
  */
 public class Window extends FrameLayout {
+    /**
+     * The constant VISIBILITY_GONE.
+     */
     public static final int VISIBILITY_GONE = 0;
+    /**
+     * The constant VISIBILITY_VISIBLE.
+     */
     public static final int VISIBILITY_VISIBLE = 1;
+    /**
+     * The constant VISIBILITY_TRANSITION.
+     */
     public static final int VISIBILITY_TRANSITION = 2;
 
+    /**
+     * The TAG.
+     */
     static final String TAG = "Window";
 
     /**
@@ -71,7 +85,10 @@ public class Window extends FrameLayout {
     /**
      * Width and height of the screen.
      */
-    int displayWidth, displayHeight;
+    int displayWidth, /**
+     * The Display height.
+     */
+    displayHeight;
 
     /**
      * Context of the window.
@@ -79,11 +96,22 @@ public class Window extends FrameLayout {
     private final StandOutWindow mContext;
     private LayoutInflater mLayoutInflater;
 
+    /**
+     * Instantiates a new Window.
+     *
+     * @param context the context
+     */
     public Window(Context context) {
         super(context);
         mContext = null;
     }
 
+    /**
+     * Instantiates a new Window.
+     *
+     * @param context the context
+     * @param id the id
+     */
     public Window(final StandOutWindow context, final int id) {
         super(context);
         context.setTheme(context.getThemeStyle());
@@ -263,8 +291,7 @@ public class Window extends FrameLayout {
     /**
      * Request or remove the focus from this window.
      *
-     * @param focus
-     *            Whether we want to gain or lose focus.
+     * @param focus             Whether we want to gain or lose focus.
      * @return True if focus changed successfully, false if it failed.
      */
     public boolean onFocus(boolean focus) {
@@ -505,8 +532,7 @@ public class Window extends FrameLayout {
      * Attach resize handles: For every View found to have id R.id.corner,
      * attach an OnTouchListener that implements resizing the window.
      *
-     * @param root
-     *            The view hierarchy that is part of the window.
+     * @param root             The view hierarchy that is part of the window.
      */
     void addFunctionality(View root) {
         // corner for resize
@@ -557,8 +583,7 @@ public class Window extends FrameLayout {
      * <p>
      * Nothing yet.
      *
-     * @param root
-     *            The root view hierarchy to iterate through and check.
+     * @param root             The root view hierarchy to iterate through and check.
      */
     void fixCompatibility(View root) {
         Queue<View> queue = new LinkedList<View>();
@@ -583,7 +608,6 @@ public class Window extends FrameLayout {
      * easily resize and reposition the window around anchor points.
      *
      * @author Mark Wei <markwei@gmail.com>
-     *
      */
     public class Editor {
         /**
@@ -614,13 +638,26 @@ public class Window extends FrameLayout {
          * Values must be between 0 and 1, inclusive. 0 means the left/top, 0.5
          * is the center, 1 is the right/bottom.
          */
-        float anchorX, anchorY;
+        float anchorX, /**
+         * The Anchor y.
+         */
+        anchorY;
 
+        /**
+         * Instantiates a new Editor.
+         */
         public Editor() {
             mParams = getLayoutParams();
             anchorX = anchorY = 0;
         }
 
+        /**
+         * Sets anchor point.
+         *
+         * @param x the x
+         * @param y the y
+         * @return the anchor point
+         */
         public Editor setAnchorPoint(float x, float y) {
             if (x < 0 || x > 1 || y < 0 || y > 1) {
                 throw new IllegalArgumentException(
@@ -641,8 +678,8 @@ public class Window extends FrameLayout {
          *
          * Changes will not applied until you {@link #commit()}.
          *
-         * @param percentWidth
-         * @param percentHeight
+         * @param percentWidth the percent width
+         * @param percentHeight the percent height
          * @return The same Editor, useful for method chaining.
          */
         public Editor setSize(float percentWidth, float percentHeight) {
@@ -657,8 +694,8 @@ public class Window extends FrameLayout {
          *
          * Changes will not applied until you {@link #commit()}.
          *
-         * @param width
-         * @param height
+         * @param width the width
+         * @param height the height
          * @return The same Editor, useful for method chaining.
          */
         public Editor setSize(int width, int height) {
@@ -745,8 +782,8 @@ public class Window extends FrameLayout {
          *
          * Changes will not applied until you {@link #commit()}.
          *
-         * @param percentWidth
-         * @param percentHeight
+         * @param percentWidth the percent width
+         * @param percentHeight the percent height
          * @return The same Editor, useful for method chaining.
          */
         public Editor setPosition(float percentWidth, float percentHeight) {
@@ -762,8 +799,8 @@ public class Window extends FrameLayout {
          *
          * Changes will not applied until you {@link #commit()}.
          *
-         * @param x
-         * @param y
+         * @param x the x
+         * @param y the y
          * @return The same Editor, useful for method chaining.
          */
         public Editor setPosition(int x, int y) {
@@ -834,11 +871,29 @@ public class Window extends FrameLayout {
         }
     }
 
+    /**
+     * The type Window data keys.
+     */
     public static class WindowDataKeys {
+        /**
+         * The constant IS_MAXIMIZED.
+         */
         public static final String IS_MAXIMIZED = "isMaximized";
+        /**
+         * The constant WIDTH_BEFORE_MAXIMIZE.
+         */
         public static final String WIDTH_BEFORE_MAXIMIZE = "widthBeforeMaximize";
+        /**
+         * The constant HEIGHT_BEFORE_MAXIMIZE.
+         */
         public static final String HEIGHT_BEFORE_MAXIMIZE = "heightBeforeMaximize";
+        /**
+         * The constant X_BEFORE_MAXIMIZE.
+         */
         public static final String X_BEFORE_MAXIMIZE = "xBeforeMaximize";
+        /**
+         * The constant Y_BEFORE_MAXIMIZE.
+         */
         public static final String Y_BEFORE_MAXIMIZE = "yBeforeMaximize";
     }
 }

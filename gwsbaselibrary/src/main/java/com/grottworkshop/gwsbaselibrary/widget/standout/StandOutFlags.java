@@ -1,6 +1,8 @@
 package com.grottworkshop.gwsbaselibrary.widget.standout;
 
 /**
+ *
+ *
  * Created by fgrott on 10/8/2014.
  */
 public class StandOutFlags {

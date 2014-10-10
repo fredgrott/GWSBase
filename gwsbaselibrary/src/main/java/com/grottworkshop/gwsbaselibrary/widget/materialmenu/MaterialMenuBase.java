@@ -22,12 +22,17 @@ import android.view.animation.Interpolator;
 import static com.grottworkshop.gwsbaselibrary.widget.materialmenu.MaterialMenuDrawable.IconState;
 
 /**
+ *
+ *
  * Created by fgrott on 10/9/2014.
  */
 public abstract class MaterialMenuBase implements MaterialMenu {
 
     private static final String STATE_KEY = "material_menu_icon_state";
 
+    /**
+     * The Current state.
+     */
     protected MaterialMenuDrawable.IconState currentState = IconState.BURGER;
 
     public final void setState(IconState state) {

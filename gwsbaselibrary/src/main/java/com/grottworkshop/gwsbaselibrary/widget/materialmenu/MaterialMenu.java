@@ -21,6 +21,8 @@ import android.view.animation.Interpolator;
 import static com.grottworkshop.gwsbaselibrary.widget.materialmenu.MaterialMenuDrawable.IconState;
 
 /**
+ *
+ *
  * Created by fgrott on 10/9/2014.
  */
 public interface MaterialMenu {

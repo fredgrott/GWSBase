@@ -25,6 +25,8 @@ import java.io.IOException;
 import java.io.InputStream;
 
 /**
+ *
+ *
  * Created by fgrott on 10/8/2014.
  */
 public final class NoticesXmlParser {

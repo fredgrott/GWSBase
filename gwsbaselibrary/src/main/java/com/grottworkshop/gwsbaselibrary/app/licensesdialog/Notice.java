@@ -20,6 +20,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 /**
+ *
  * Created by fgrott on 10/8/2014.
  */
 public class Notice implements Parcelable {
@@ -31,9 +32,20 @@ public class Notice implements Parcelable {
 
     //
 
+    /**
+     * Instantiates a new Notice.
+     */
     public Notice() {
     }
 
+    /**
+     * Instantiates a new Notice.
+     *
+     * @param name the name
+     * @param url the url
+     * @param copyright the copyright
+     * @param license the license
+     */
     public Notice(final String name, final String url, final String copyright, final License license) {
         mName = name;
         mUrl = url;
@@ -43,34 +55,74 @@ public class Notice implements Parcelable {
 
     // Setter / Getter
 
+    /**
+     * Sets name.
+     *
+     * @param name the name
+     */
     public void setName(final String name) {
         mName = name;
     }
 
+    /**
+     * Sets url.
+     *
+     * @param url the url
+     */
     public void setUrl(final String url) {
         mUrl = url;
     }
 
+    /**
+     * Sets copyright.
+     *
+     * @param copyright the copyright
+     */
     public void setCopyright(final String copyright) {
         mCopyright = copyright;
     }
 
+    /**
+     * Sets license.
+     *
+     * @param license the license
+     */
     public void setLicense(final License license) {
         mLicense = license;
     }
 
+    /**
+     * Gets name.
+     *
+     * @return the name
+     */
     public String getName() {
         return mName;
     }
 
+    /**
+     * Gets url.
+     *
+     * @return the url
+     */
     public String getUrl() {
         return mUrl;
     }
 
+    /**
+     * Gets copyright.
+     *
+     * @return the copyright
+     */
     public String getCopyright() {
         return mCopyright;
     }
 
+    /**
+     * Gets license.
+     *
+     * @return the license
+     */
     public License getLicense() {
         return mLicense;
     }
@@ -97,6 +149,9 @@ public class Notice implements Parcelable {
         mLicense = (License) in.readSerializable();
     }
 
+    /**
+     * The constant CREATOR.
+     */
     public static Creator<Notice> CREATOR = new Parcelable.Creator<Notice>() {
         public Notice createFromParcel(final Parcel source) {
             return new Notice(source);

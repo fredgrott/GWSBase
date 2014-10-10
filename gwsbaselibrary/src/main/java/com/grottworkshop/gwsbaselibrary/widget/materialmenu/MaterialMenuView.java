@@ -38,6 +38,7 @@ import static com.grottworkshop.gwsbaselibrary.widget.materialmenu.MaterialMenuD
 
 
 /**
+ *
  * Created by fgrott on 10/9/2014.
  */
 public  class MaterialMenuView extends View implements MaterialMenu {
@@ -52,14 +53,32 @@ public  class MaterialMenuView extends View implements MaterialMenu {
     private int    pressedDuration;
     private Stroke stroke;
 
+    /**
+     * Instantiates a new Material menu view.
+     *
+     * @param context the context
+     */
     public MaterialMenuView(Context context) {
         this(context, null);
     }
 
+    /**
+     * Instantiates a new Material menu view.
+     *
+     * @param context the context
+     * @param attrs the attrs
+     */
     public MaterialMenuView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
+    /**
+     * Instantiates a new Material menu view.
+     *
+     * @param context the context
+     * @param attrs the attrs
+     * @param defStyleAttr the def style attr
+     */
     public MaterialMenuView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         initAttributes(context, attrs);
@@ -204,8 +223,16 @@ public  class MaterialMenuView extends View implements MaterialMenu {
     }
 
     private static class SavedState extends BaseSavedState {
+        /**
+         * The State.
+         */
         protected MaterialMenuDrawable.IconState state;
 
+        /**
+         * Instantiates a new Saved state.
+         *
+         * @param superState the super state
+         */
         SavedState(Parcelable superState) {
             super(superState);
         }
@@ -221,6 +248,9 @@ public  class MaterialMenuView extends View implements MaterialMenu {
             out.writeString(state.name());
         }
 
+        /**
+         * The constant CREATOR.
+         */
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.Creator<SavedState>() {
             @Override
             public SavedState createFromParcel(Parcel in) {

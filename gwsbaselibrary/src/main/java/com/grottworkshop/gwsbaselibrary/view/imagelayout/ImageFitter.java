@@ -21,17 +21,33 @@ import android.graphics.Rect;
 import android.view.Gravity;
 
 /**
+ *
+ *
  * Created by fgrott on 10/9/2014.
  */
 class ImageFitter {
     private int gravity;
     private int fitMode;
 
+    /**
+     * Instantiates a new Image fitter.
+     *
+     * @param mode the mode
+     * @param gravity the gravity
+     */
     ImageFitter(int mode, int gravity) {
         this.fitMode = mode;
         this.gravity = gravity;
     }
 
+    /**
+     * Fit rect.
+     *
+     * @param bmp the bmp
+     * @param viewWidth the view width
+     * @param viewHeight the view height
+     * @return the rect
+     */
     Rect fit(Bitmap bmp, int viewWidth, int viewHeight) {
         switch (fitMode) {
             case ImageLayout.FIT_VERTICAL:

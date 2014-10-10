@@ -19,6 +19,8 @@ package com.grottworkshop.gwsbaselibrary.fonts;
 import android.text.TextUtils;
 
 /**
+ *
+ *
  * Created by fgrott on 10/7/2014.
  */
 public class CalligraphyConfig {

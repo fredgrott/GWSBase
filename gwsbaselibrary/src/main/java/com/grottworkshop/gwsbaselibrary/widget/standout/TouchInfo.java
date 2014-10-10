@@ -3,6 +3,8 @@ package com.grottworkshop.gwsbaselibrary.widget.standout;
 import java.util.Locale;
 
 /**
+ *
+ *
  * Created by fgrott on 10/8/2014.
  */
 public class TouchInfo {

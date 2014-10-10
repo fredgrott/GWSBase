@@ -35,11 +35,13 @@ import android.widget.ImageButton;
 
 
 /**
+ *
+ *
  * Created by fgrott on 10/8/2014.
  */
 public class ActionButton extends ImageButton {
 
-    private static final String LOGTAG = "ActionButton";
+    //private static final String LOGTAG = "ActionButton";
 
     // some default constants for initializing the ActionButton
     public static final int DEFAULT_DISTANCE_FROM_BOTTOM = 50;

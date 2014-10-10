@@ -23,29 +23,56 @@ import android.util.AttributeSet;
 import android.widget.ProgressBar;
 
 import com.grottworkshop.gwsbaselibrary.R;
-import com.grottworkshop.gwsbaselibrary.widget.googleprogressbar.FoldingCirclesDrawable;
-import com.grottworkshop.gwsbaselibrary.widget.googleprogressbar.GoogleMusicDicesDrawable;
-import com.grottworkshop.gwsbaselibrary.widget.googleprogressbar.NexusRotationCrossDrawable;
+
 
 /**
+ *
+ *
  * Created by fgrott on 10/7/2014.
  */
 public class GoogleProgressBar extends ProgressBar {
 
     private enum ProgressType{
+        /**
+         * The FOLDING_CIRCLES.
+         */
         FOLDING_CIRCLES,
+        /**
+         * The GOOGLE_MUSIC_DICES.
+         */
         GOOGLE_MUSIC_DICES,
+        /**
+         * The NEXUS_ROTATION_CROSS.
+         */
         NEXUS_ROTATION_CROSS
     }
 
+    /**
+     * Instantiates a new Google progress bar.
+     *
+     * @param context the context
+     */
     public GoogleProgressBar(Context context) {
         this(context, null);
     }
 
+    /**
+     * Instantiates a new Google progress bar.
+     *
+     * @param context the context
+     * @param attrs the attrs
+     */
     public GoogleProgressBar(Context context, AttributeSet attrs) {
         this(context, attrs,android.R.attr.progressBarStyle);
     }
 
+    /**
+     * Instantiates a new Google progress bar.
+     *
+     * @param context the context
+     * @param attrs the attrs
+     * @param defStyle the def style
+     */
     public GoogleProgressBar(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.GoogleProgressBar, defStyle, 0);

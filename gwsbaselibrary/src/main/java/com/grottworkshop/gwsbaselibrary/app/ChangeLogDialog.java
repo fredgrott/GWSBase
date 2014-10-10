@@ -44,6 +44,8 @@ import java.util.Date;
 
 
 /**
+ *
+ *
  * Created by fgrott on 10/8/2014.
  */
 public class ChangeLogDialog {

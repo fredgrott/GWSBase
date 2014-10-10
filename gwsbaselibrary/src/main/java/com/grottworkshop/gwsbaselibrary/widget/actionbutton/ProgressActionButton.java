@@ -22,13 +22,21 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 
 /**
+ *
+ *
  * Created by fgrott on 10/8/2014.
  */
 public class ProgressActionButton extends ActionButton {
 
-    private static final String LOGTAG = "ProgressActionButton";
+    //private static final String LOGTAG = "ProgressActionButton";
 
+    /**
+     * The constant DEFAULT_PROGRESS_COLOR.
+     */
     public static final int DEFAULT_PROGRESS_COLOR = 0xCCFFFFFF;
+    /**
+     * The constant DEFAULT_MAX_PROGRESS.
+     */
     public static final int DEFAULT_MAX_PROGRESS = 100;
 
     private int maxProgress = DEFAULT_MAX_PROGRESS;

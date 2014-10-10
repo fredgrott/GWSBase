@@ -6,6 +6,8 @@ import android.util.AttributeSet;
 import android.widget.ScrollView;
 
 /**
+ *
+ *
  * Created by fgrott on 10/9/2014.
  */
 public class ObservableScrollView extends ScrollView implements ObservableScrollable {
@@ -14,14 +16,32 @@ public class ObservableScrollView extends ScrollView implements ObservableScroll
 
     private OnScrollChangedCallback mOnScrollChangedListener;
 
+    /**
+     * Instantiates a new Observable scroll view.
+     *
+     * @param context the context
+     */
     public ObservableScrollView(Context context) {
         super(context);
     }
 
+    /**
+     * Instantiates a new Observable scroll view.
+     *
+     * @param context the context
+     * @param attrs the attrs
+     */
     public ObservableScrollView(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
+    /**
+     * Instantiates a new Observable scroll view.
+     *
+     * @param context the context
+     * @param attrs the attrs
+     * @param defStyle the def style
+     */
     public ObservableScrollView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }

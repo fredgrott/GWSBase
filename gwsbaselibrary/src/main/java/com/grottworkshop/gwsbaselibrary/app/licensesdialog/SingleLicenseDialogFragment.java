@@ -20,11 +20,14 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 
 import com.grottworkshop.gwsbaselibrary.R;
 
 /**
+ *
+ *
  * Created by fgrott on 10/8/2014.
  */
 public class SingleLicenseDialogFragment extends DialogFragment {
@@ -44,10 +47,23 @@ public class SingleLicenseDialogFragment extends DialogFragment {
     private boolean mShowFullLicenseText;
     private DialogInterface.OnDismissListener mOnDismissListener;
 
+    /**
+     * New instance.
+     *
+     * @param notice the notice
+     * @return the single license dialog fragment
+     */
     public static SingleLicenseDialogFragment newInstance(final Notice notice) {
         return newInstance(notice, false);
     }
 
+    /**
+     * New instance.
+     *
+     * @param notice the notice
+     * @param showFullLicenseText the show full license text
+     * @return the single license dialog fragment
+     */
     public static SingleLicenseDialogFragment newInstance(final Notice notice, final boolean showFullLicenseText) {
         final SingleLicenseDialogFragment fragment = new SingleLicenseDialogFragment();
         final Bundle args = new Bundle();
@@ -57,6 +73,9 @@ public class SingleLicenseDialogFragment extends DialogFragment {
         return fragment;
     }
 
+    /**
+     * Instantiates a new Single license dialog fragment.
+     */
     public SingleLicenseDialogFragment() {
     }
 
@@ -92,7 +111,7 @@ public class SingleLicenseDialogFragment extends DialogFragment {
     }
 
     @Override
-    public Dialog onCreateDialog(final Bundle savedInstanceState) {
+    public Dialog onCreateDialog( final @NonNull Bundle savedInstanceState) {
         return new LicensesDialog.Builder(getActivity()).setNotices(mLicenseText).setTitle(mTitleText).setCloseText(mCloseButtonText).build().create();
     }
 
@@ -106,18 +125,38 @@ public class SingleLicenseDialogFragment extends DialogFragment {
 
     //
 
+    /**
+     * Gets on dismiss listener.
+     *
+     * @return the on dismiss listener
+     */
     public DialogInterface.OnDismissListener getOnDismissListener() {
         return mOnDismissListener;
     }
 
+    /**
+     * Sets on dismiss listener.
+     *
+     * @param onDismissListener the on dismiss listener
+     */
     public void setOnDismissListener(final DialogInterface.OnDismissListener onDismissListener) {
         mOnDismissListener = onDismissListener;
     }
 
+    /**
+     * Is show full license text.
+     *
+     * @return the boolean
+     */
     public boolean isShowFullLicenseText() {
         return mShowFullLicenseText;
     }
 
+    /**
+     * Sets show full license text.
+     *
+     * @param showFullLicenseText the show full license text
+     */
     public void setShowFullLicenseText(final boolean showFullLicenseText) {
         mShowFullLicenseText = showFullLicenseText;
     }

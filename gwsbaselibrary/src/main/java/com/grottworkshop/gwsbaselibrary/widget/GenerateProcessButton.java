@@ -29,18 +29,37 @@ import android.graphics.Canvas;
 import android.util.AttributeSet;
 
 /**
+ *
  * Created by fgrott on 10/7/2014.
  */
 public class GenerateProcessButton extends ProcessButton {
 
+    /**
+     * Instantiates a new Generate process button.
+     *
+     * @param context the context
+     */
     public GenerateProcessButton(Context context) {
         super(context);
     }
 
+    /**
+     * Instantiates a new Generate process button.
+     *
+     * @param context the context
+     * @param attrs the attrs
+     */
     public GenerateProcessButton(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
+    /**
+     * Instantiates a new Generate process button.
+     *
+     * @param context the context
+     * @param attrs the attrs
+     * @param defStyle the def style
+     */
     public GenerateProcessButton(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }

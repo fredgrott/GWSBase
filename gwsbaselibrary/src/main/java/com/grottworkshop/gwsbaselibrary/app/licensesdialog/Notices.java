@@ -23,22 +23,37 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ *
+ *
  * Created by fgrott on 10/8/2014.
  */
 public class Notices implements Parcelable {
 
     private final List<Notice> mNotices;
 
+    /**
+     * Instantiates a new Notices.
+     */
     public Notices() {
         mNotices = new ArrayList<Notice>();
     }
 
     // Setter / Getter
 
+    /**
+     * Add notice.
+     *
+     * @param notice the notice
+     */
     public void addNotice(final Notice notice) {
         mNotices.add(notice);
     }
 
+    /**
+     * Gets notices.
+     *
+     * @return the notices
+     */
     public List<Notice> getNotices() {
         return mNotices;
     }
@@ -55,11 +70,19 @@ public class Notices implements Parcelable {
         dest.writeList(this.mNotices);
     }
 
+    /**
+     * Instantiates a new Notices.
+     *
+     * @param in the in
+     */
     protected Notices(final Parcel in) {
         mNotices = new ArrayList<Notice>();
         in.readList(this.mNotices, Notice.class.getClassLoader());
     }
 
+    /**
+     * The constant CREATOR.
+     */
     public static Creator<Notices> CREATOR = new Parcelable.Creator<Notices>() {
         public Notices createFromParcel(final Parcel source) {
             return new Notices(source);

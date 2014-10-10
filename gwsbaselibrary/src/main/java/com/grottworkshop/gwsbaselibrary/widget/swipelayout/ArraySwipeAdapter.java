@@ -9,31 +9,76 @@ import java.util.List;
 
 /**
  * Created by fgrott on 10/7/2014.
+ * @param <T>  the type parameter
  */
 public abstract class ArraySwipeAdapter<T> extends ArrayAdapter implements SwipeItemMangerInterface,SwipeAdapterInterface {
 
     private SwipeItemMangerImpl mItemManger = new SwipeItemMangerImpl(this);
     {}
+
+    /**
+     * Instantiates a new Array swipe adapter.
+     *
+     * @param context the context
+     * @param resource the resource
+     */
     public ArraySwipeAdapter(Context context, int resource) {
         super(context, resource);
     }
 
+    /**
+     * Instantiates a new Array swipe adapter.
+     *
+     * @param context the context
+     * @param resource the resource
+     * @param textViewResourceId the text view resource id
+     */
     public ArraySwipeAdapter(Context context, int resource, int textViewResourceId) {
         super(context, resource, textViewResourceId);
     }
 
+    /**
+     * Instantiates a new Array swipe adapter.
+     *
+     * @param context the context
+     * @param resource the resource
+     * @param objects the objects
+     */
     public ArraySwipeAdapter(Context context, int resource, T[] objects) {
         super(context, resource, objects);
     }
 
+    /**
+     * Instantiates a new Array swipe adapter.
+     *
+     * @param context the context
+     * @param resource the resource
+     * @param textViewResourceId the text view resource id
+     * @param objects the objects
+     */
     public ArraySwipeAdapter(Context context, int resource, int textViewResourceId, T[] objects) {
         super(context, resource, textViewResourceId, objects);
     }
 
+    /**
+     * Instantiates a new Array swipe adapter.
+     *
+     * @param context the context
+     * @param resource the resource
+     * @param objects the objects
+     */
     public ArraySwipeAdapter(Context context, int resource, List<T> objects) {
         super(context, resource, objects);
     }
 
+    /**
+     * Instantiates a new Array swipe adapter.
+     *
+     * @param context the context
+     * @param resource the resource
+     * @param textViewResourceId the text view resource id
+     * @param objects the objects
+     */
     public ArraySwipeAdapter(Context context, int resource, int textViewResourceId, List<T> objects) {
         super(context, resource, textViewResourceId, objects);
     }

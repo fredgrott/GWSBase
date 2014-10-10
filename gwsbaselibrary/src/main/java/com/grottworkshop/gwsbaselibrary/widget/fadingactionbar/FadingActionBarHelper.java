@@ -22,6 +22,8 @@ import android.app.Activity;
 import android.graphics.drawable.Drawable;
 
 /**
+ *
+ *
  * Created by fgrott on 10/9/2014.
  */
 public class FadingActionBarHelper extends FadingActionBarHelperBase {

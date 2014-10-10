@@ -41,6 +41,8 @@ import com.grottworkshop.gwsbaselibrary.widget.notifyingscrollview.NotifyingScro
 
 
 /**
+ *
+ *
  * Created by fgrott on 10/9/2014.
  */
 public class GlassActionBarHelper implements ViewTreeObserver.OnGlobalLayoutListener, NotifyingScrollView.OnScrollChangedListener, BlurTask.Listener, ListViewScrollObserver.OnListViewScrollListener {
@@ -63,17 +65,36 @@ public class GlassActionBarHelper implements ViewTreeObserver.OnGlobalLayoutList
     private boolean verbose = GlassActionBar.verbose;
     private Drawable windowBackground;
 
+    /**
+     * Content layout.
+     *
+     * @param layout the layout
+     * @return the glass action bar helper
+     */
     public GlassActionBarHelper contentLayout(int layout) {
         this.contentLayout = layout;
         return this;
     }
 
+    /**
+     * Content layout.
+     *
+     * @param layout the layout
+     * @param adapter the adapter
+     * @return the glass action bar helper
+     */
     public GlassActionBarHelper contentLayout(int layout, ListAdapter adapter) {
         this.contentLayout = layout;
         this.adapter = adapter;
         return this;
     }
 
+    /**
+     * Create view.
+     *
+     * @param context the context
+     * @return the view
+     */
     public View createView(Context context) {
         int[] attrs = { android.R.attr.windowBackground };
 
@@ -109,6 +130,9 @@ public class GlassActionBarHelper implements ViewTreeObserver.OnGlobalLayoutList
         return frame;
     }
 
+    /**
+     * Invalidate void.
+     */
     public void invalidate() {
         if (verbose) Log.v(TAG, "invalidate()");
         scaled = null;
@@ -116,6 +140,11 @@ public class GlassActionBarHelper implements ViewTreeObserver.OnGlobalLayoutList
         updateBlurOverlay(lastScrollPosition, true);
     }
 
+    /**
+     * Sets blur radius.
+     *
+     * @param newValue the new value
+     */
     public void setBlurRadius(int newValue) {
         if (!GlassActionBar.isValidBlurRadius(newValue)) {
             throw new IllegalArgumentException("Invalid blur radius");
@@ -127,10 +156,20 @@ public class GlassActionBarHelper implements ViewTreeObserver.OnGlobalLayoutList
         invalidate();
     }
 
+    /**
+     * Gets blur radius.
+     *
+     * @return the blur radius
+     */
     public int getBlurRadius() {
         return blurRadius;
     }
 
+    /**
+     * Sets downsampling.
+     *
+     * @param newValue the new value
+     */
     public void setDownsampling(int newValue) {
         if (!GlassActionBar.isValidDownsampling(newValue)) {
             throw new IllegalArgumentException("Invalid downsampling");
@@ -142,10 +181,21 @@ public class GlassActionBarHelper implements ViewTreeObserver.OnGlobalLayoutList
         invalidate();
     }
 
+    /**
+     * Gets downsampling.
+     *
+     * @return the downsampling
+     */
     public int getDownsampling() {
         return downSampling;
     }
 
+    /**
+     * Gets action bar height.
+     *
+     * @param context the context
+     * @return the action bar height
+     */
     protected int getActionBarHeight(Context context) {
         TypedValue outValue = new TypedValue();
         context.getTheme().resolveAttribute(android.R.attr.actionBarSize, outValue, true);

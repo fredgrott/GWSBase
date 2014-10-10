@@ -40,6 +40,8 @@ import com.grottworkshop.gwsbaselibrary.R;
 
 
 /**
+ *
+ *
  * Created by fgrott on 10/8/2014.
  */
 public abstract class StandOutWindow extends Service {

@@ -24,6 +24,8 @@ import android.content.pm.PackageManager;
 import android.preference.PreferenceManager;
 
 /**
+ *
+ *
  * Created by fgrott on 10/8/2014.
  */
 public class WhatsNewDialog extends ChangeLogDialog {

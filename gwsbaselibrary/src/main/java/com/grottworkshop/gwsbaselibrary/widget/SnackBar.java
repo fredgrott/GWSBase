@@ -39,6 +39,8 @@ import com.grottworkshop.gwsbaselibrary.R;
 import java.util.Stack;
 
 /**
+ *
+ *
  * Created by fgrott on 10/7/2014.
  */
 public class SnackBar {
@@ -48,12 +50,24 @@ public class SnackBar {
 
     private static final int ANIMATION_DURATION = 300;
 
+    /**
+     * The constant LONG_SNACK.
+     */
     public static final short LONG_SNACK = 5000;
 
+    /**
+     * The constant MED_SNACK.
+     */
     public static final short MED_SNACK = 3500;
 
+    /**
+     * The constant SHORT_SNACK.
+     */
     public static final short SHORT_SNACK = 2000;
 
+    /**
+     * The constant PERMANENT_SNACK.
+     */
     public static final short PERMANENT_SNACK = 0;
 
     private View mContainer;
@@ -84,17 +98,44 @@ public class SnackBar {
 
     private Context mContext;
 
+    /**
+     * The interface On message click listener.
+     */
     public interface OnMessageClickListener {
 
+        /**
+         * On message click.
+         *
+         * @param token the token
+         */
         void onMessageClick(Parcelable token);
     }
 
+    /**
+     * The interface On visibility change listener.
+     */
     public interface OnVisibilityChangeListener {
 
+        /**
+         * On show.
+         *
+         * @param stackSize the stack size
+         */
         void onShow(int stackSize);
+
+        /**
+         * On hide.
+         *
+         * @param stackSize the stack size
+         */
         void onHide(int stackSize);
     }
 
+    /**
+     * Instantiates a new Snack bar.
+     *
+     * @param activity the activity
+     */
     public SnackBar(Activity activity) {
         mContext = activity.getApplicationContext();
         ViewGroup container = (ViewGroup) activity.findViewById(android.R.id.content);
@@ -102,6 +143,12 @@ public class SnackBar {
         init(v);
     }
 
+    /**
+     * Instantiates a new Snack bar.
+     *
+     * @param context the context
+     * @param v the v
+     */
     public SnackBar(Context context, View v) {
         mContext = context;
         init(v);
@@ -170,76 +217,219 @@ public class SnackBar {
     }
 
 
+    /**
+     * Show void.
+     *
+     * @param message the message
+     */
     public void show(String message) {
         show(message, null);
     }
 
+    /**
+     * Show void.
+     *
+     * @param message the message
+     * @param actionMessage the action message
+     */
     public void show(String message, String actionMessage) {
         show(message, actionMessage, Style.DEFAULT);
     }
 
+    /**
+     * Show void.
+     *
+     * @param message the message
+     * @param actionMessage the action message
+     * @param textColor the text color
+     */
     public void show(String message, String actionMessage, int textColor) {
         show(message, actionMessage, textColor, 0);
     }
 
+    /**
+     * Show void.
+     *
+     * @param message the message
+     * @param actionMessage the action message
+     * @param actionStyle the action style
+     */
     public void show(String message, String actionMessage, Style actionStyle) {
         show(message, actionMessage, actionStyle, 0);
     }
 
+    /**
+     * Show void.
+     *
+     * @param message the message
+     * @param actionMessage the action message
+     * @param textColor the text color
+     * @param actionIcon the action icon
+     */
     public void show(String message, String actionMessage, int textColor, int actionIcon) {
         show(message, actionMessage, textColor, actionIcon, null);
     }
 
+    /**
+     * Show void.
+     *
+     * @param message the message
+     * @param actionMessage the action message
+     * @param actionStyle the action style
+     * @param actionIcon the action icon
+     */
     public void show(String message, String actionMessage, Style actionStyle, int actionIcon) {
         show(message, actionMessage, actionStyle, actionIcon, null);
     }
 
+    /**
+     * Show void.
+     *
+     * @param message the message
+     * @param actionMessage the action message
+     * @param actionIcon the action icon
+     * @param token the token
+     */
     public void show(String message, String actionMessage, int actionIcon, Parcelable token) {
         show(message, actionMessage, Style.DEFAULT, actionIcon, token);
     }
 
+    /**
+     * Show void.
+     *
+     * @param message the message
+     * @param actionMessage the action message
+     * @param textColor the text color
+     * @param actionIcon the action icon
+     * @param token the token
+     */
     public void show(String message, String actionMessage, int textColor, int actionIcon, Parcelable token) {
         show(message, actionMessage, textColor, actionIcon, token, MED_SNACK);
     }
 
+    /**
+     * Show void.
+     *
+     * @param message the message
+     * @param actionMessage the action message
+     * @param actionStyle the action style
+     * @param actionIcon the action icon
+     * @param token the token
+     */
     public void show(String message, String actionMessage, Style actionStyle, int actionIcon, Parcelable token) {
         show(message, actionMessage, actionStyle, actionIcon, token, MED_SNACK);
     }
 
+    /**
+     * Show void.
+     *
+     * @param message the message
+     * @param duration the duration
+     */
     public void show(String message, short duration) {
         show(message, null, duration);
     }
 
+    /**
+     * Show void.
+     *
+     * @param message the message
+     * @param actionMessage the action message
+     * @param duration the duration
+     */
     public void show(String message, String actionMessage, short duration) {
         show(message, actionMessage, Style.DEFAULT, duration);
     }
 
+    /**
+     * Show void.
+     *
+     * @param message the message
+     * @param actionMessage the action message
+     * @param textColor the text color
+     * @param duration the duration
+     */
     public void show(String message, String actionMessage, int textColor, short duration) {
         show(message, actionMessage, textColor, 0, duration);
     }
 
+    /**
+     * Show void.
+     *
+     * @param message the message
+     * @param actionMessage the action message
+     * @param actionStyle the action style
+     * @param duration the duration
+     */
     public void show(String message, String actionMessage, Style actionStyle, short duration) {
         show(message, actionMessage, actionStyle, 0, duration);
     }
 
+    /**
+     * Show void.
+     *
+     * @param message the message
+     * @param actionMessage the action message
+     * @param textColor the text color
+     * @param actionIcon the action icon
+     * @param duration the duration
+     */
     public void show(String message, String actionMessage, int textColor, int actionIcon, short duration) {
         show(message, actionMessage, textColor, actionIcon, null, duration);
     }
 
+    /**
+     * Show void.
+     *
+     * @param message the message
+     * @param actionMessage the action message
+     * @param actionStyle the action style
+     * @param actionIcon the action icon
+     * @param duration the duration
+     */
     public void show(String message, String actionMessage, Style actionStyle, int actionIcon, short duration) {
         show(message, actionMessage, actionStyle, actionIcon, null, duration);
     }
 
+    /**
+     * Show void.
+     *
+     * @param message the message
+     * @param actionMessage the action message
+     * @param actionIcon the action icon
+     * @param token the token
+     * @param duration the duration
+     */
     public void show(String message, String actionMessage, int actionIcon, Parcelable token, short duration) {
         show(message, actionMessage, Style.DEFAULT, actionIcon, token, duration);
     }
 
+    /**
+     * Show void.
+     *
+     * @param message the message
+     * @param actionMessage the action message
+     * @param textColor the text color
+     * @param actionIcon the action icon
+     * @param token the token
+     * @param duration the duration
+     */
     public void show(String message, String actionMessage, int textColor, int actionIcon, Parcelable token, short duration) {
         int color = mContext.getResources().getColor(textColor);
         Snack m = new Snack(message, (actionMessage != null ? actionMessage.toUpperCase() : null),
                 actionIcon, token, duration, color);
     }
 
+    /**
+     * Show void.
+     *
+     * @param message the message
+     * @param actionMessage the action message
+     * @param style the style
+     * @param actionIcon the action icon
+     * @param token the token
+     * @param duration the duration
+     */
     public void show(String message, String actionMessage, Style style, int actionIcon, Parcelable token, short duration) {
         Snack m = new Snack(message, (actionMessage != null ? actionMessage.toUpperCase() : null), actionIcon, token, duration, style);
         if (isShowing()) {
@@ -249,12 +439,22 @@ public class SnackBar {
         }
     }
 
+    /**
+     * Gets height.
+     *
+     * @return the height
+     */
     public int getHeight() {
         mContainer.measure(View.MeasureSpec.makeMeasureSpec(mParentView.getWidth(), View.MeasureSpec.EXACTLY),
                 View.MeasureSpec.makeMeasureSpec(mParentView.getHeight(), View.MeasureSpec.AT_MOST));
         return mContainer.getMeasuredHeight();
     }
 
+    /**
+     * Gets container view.
+     *
+     * @return the container view
+     */
     public View getContainerView() {
         return mContainer;
     }
@@ -357,15 +557,28 @@ public class SnackBar {
         }
     };
 
+    /**
+     * Sets on click listener.
+     *
+     * @param listener the listener
+     */
     public void setOnClickListener(OnMessageClickListener listener) {
         mClickListener = listener;
     }
 
+    /**
+     * Clear void.
+     *
+     * @param animate the animate
+     */
     public void clear(boolean animate) {
         mSnacks.clear();
         if (animate) mHideRunnable.run();
     }
 
+    /**
+     * Clear void.
+     */
     public void clear() {
         clear(true);
     }
@@ -378,6 +591,11 @@ public class SnackBar {
     };
 
 
+    /**
+     * On restore instance state.
+     *
+     * @param state the state
+     */
     public void onRestoreInstanceState(Bundle state) {
         Snack currentSnack = state.getParcelable(SAVED_CURR_MSG);
         if (currentSnack != null) {
@@ -389,6 +607,11 @@ public class SnackBar {
         }
     }
 
+    /**
+     * On save instance state.
+     *
+     * @return the bundle
+     */
     public Bundle onSaveInstanceState() {
         Bundle b = new Bundle();
 
@@ -410,29 +633,75 @@ public class SnackBar {
         return mShowing;
     }
 
+    /**
+     * The enum Style.
+     */
     public enum Style{
+        /**
+         * The DEFAULT.
+         */
         DEFAULT,
+        /**
+         * The ALERT.
+         */
         ALERT,
+        /**
+         * The CONFIRM.
+         */
         CONFIRM,
+        /**
+         * The INFO.
+         */
         INFO
     }
 
     private static class Snack implements Parcelable {
 
+        /**
+         * The M message.
+         */
         final String mMessage;
 
+        /**
+         * The M action message.
+         */
         final String mActionMessage;
 
+        /**
+         * The M action icon.
+         */
         final int mActionIcon;
 
+        /**
+         * The M token.
+         */
         final Parcelable mToken;
 
+        /**
+         * The M duration.
+         */
         final short mDuration;
 
+        /**
+         * The M btn text color.
+         */
         final int mBtnTextColor;
 
+        /**
+         * The M style.
+         */
         final Style mStyle;
 
+        /**
+         * Instantiates a new Snack.
+         *
+         * @param message the message
+         * @param actionMessage the action message
+         * @param actionIcon the action icon
+         * @param token the token
+         * @param duration the duration
+         * @param textColor the text color
+         */
         public Snack(String message, String actionMessage, int actionIcon,
                      Parcelable token, short duration, int textColor) {
             mMessage = message;
@@ -444,6 +713,16 @@ public class SnackBar {
             mStyle = Style.DEFAULT;
         }
 
+        /**
+         * Instantiates a new Snack.
+         *
+         * @param message the message
+         * @param actionMessage the action message
+         * @param actionIcon the action icon
+         * @param token the token
+         * @param duration the duration
+         * @param style the style
+         */
         public Snack(String message, String actionMessage, int actionIcon,
                      Parcelable token, short duration, Style style) {
             mMessage = message;
@@ -455,7 +734,12 @@ public class SnackBar {
             mBtnTextColor = 0;
         }
 
-        // reads data from parcel
+        /**
+         * Instantiates a new Snack.
+         *
+         * @param p the p
+         */
+// reads data from parcel
         public Snack(Parcel p) {
             mMessage = p.readString();
             mActionMessage = p.readString();
@@ -481,7 +765,10 @@ public class SnackBar {
             return 0;
         }
 
-        // creates snack array
+        /**
+         * The constant CREATOR.
+         */
+// creates snack array
         public static final Parcelable.Creator<Snack> CREATOR = new Parcelable.Creator<Snack>() {
             public Snack createFromParcel(Parcel in) {
                 return new Snack(in);

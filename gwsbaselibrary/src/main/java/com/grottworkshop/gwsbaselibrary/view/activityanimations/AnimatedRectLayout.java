@@ -11,20 +11,43 @@ import android.view.View;
 import android.view.ViewGroup;
 
 /**
+ *
+ *
  * Created by Favient Laurent
  */
 public class AnimatedRectLayout extends ViewGroup {
 
     private static final String TAG = "AnimatedRectLayout";
 
+    /**
+     * The constant ANIMATION_RANDOM.
+     */
     public static final int ANIMATION_RANDOM = 1;
+    /**
+     * The constant ANIMATION_WAVE_TL.
+     */
     public static final int ANIMATION_WAVE_TL = 2;
+    /**
+     * The constant ANIMATION_WAVE_TR.
+     */
     public static final int ANIMATION_WAVE_TR = 4;
+    /**
+     * The constant ANIMATION_WAVE_BR.
+     */
     public static final int ANIMATION_WAVE_BR = 8;
+    /**
+     * The constant ANIMATION_WAVE_BL.
+     */
     public static final int ANIMATION_WAVE_BL = 16;
 
+    /**
+     * The constant RECT_COUNT_IN_WIDTH.
+     */
     public static final int RECT_COUNT_IN_WIDTH = 10;
 
+    /**
+     * The IS _ jBMR 2.
+     */
     static final boolean IS_JBMR2 = Build.VERSION.SDK_INT == Build.VERSION_CODES.JELLY_BEAN_MR2;
 
     private static SparseArray<IndexesBuilder> sIndexesBuilder = new SparseArray<IndexesBuilder>();
@@ -41,26 +64,59 @@ public class AnimatedRectLayout extends ViewGroup {
 
     private Bitmap mFullBitmap;
 
+    /**
+     * Instantiates a new Animated rect layout.
+     *
+     * @param context the context
+     */
     public AnimatedRectLayout(Context context) {
         super(context);
     }
 
+    /**
+     * Instantiates a new Animated rect layout.
+     *
+     * @param context the context
+     * @param attrs the attrs
+     */
     public AnimatedRectLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
+    /**
+     * Instantiates a new Animated rect layout.
+     *
+     * @param context the context
+     * @param attrs the attrs
+     * @param defStyle the def style
+     */
     public AnimatedRectLayout(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
 
+    /**
+     * Sets animation type.
+     *
+     * @param animationType the animation type
+     */
     public void setAnimationType(int animationType) {
         mAnimationType = animationType;
     }
 
+    /**
+     * Gets progress.
+     *
+     * @return the progress
+     */
     public float getProgress() {
         return mProgress;
     }
 
+    /**
+     * Sets progress.
+     *
+     * @param progress the progress
+     */
     public void setProgress(float progress) {
         mProgress = progress;
         invalidate();
@@ -187,6 +243,14 @@ public class AnimatedRectLayout extends ViewGroup {
     }
 
     private interface IndexesBuilder {
+        /**
+         * Build int [ ] [ ].
+         *
+         * @param indexes the indexes
+         * @param rectCountInWidth the rect count in width
+         * @param rectCountInHeight the rect count in height
+         * @return the int [ ] [ ]
+         */
         public int[][] build(int[][] indexes, int rectCountInWidth, int rectCountInHeight);
     }
 

@@ -26,6 +26,8 @@ import java.util.Map;
 
 
 /**
+ *
+ *
  * Created by fgrott on 10/7/2014.
  */
 public class SwipeLayout extends FrameLayout {
@@ -45,26 +47,68 @@ public class SwipeLayout extends FrameLayout {
 
     private boolean mSwipeEnabled = true;
 
+    /**
+     * The enum Drag edge.
+     */
     public static enum DragEdge {
+        /**
+         * The Left.
+         */
         Left,
+        /**
+         * The Right.
+         */
         Right,
+        /**
+         * The Top.
+         */
         Top,
+        /**
+         * The Bottom.
+         */
         Bottom;
     };
 
+    /**
+     * The enum Show mode.
+     */
     public static enum ShowMode {
-        LayDown, PullOut
+        /**
+         * The LayDown.
+         */
+        LayDown, /**
+         * The PullOut.
+         */
+        PullOut
     }
 
 
+    /**
+     * Instantiates a new Swipe layout.
+     *
+     * @param context the context
+     */
     public SwipeLayout(Context context) {
         this(context, null);
     }
 
+    /**
+     * Instantiates a new Swipe layout.
+     *
+     * @param context the context
+     * @param attrs the attrs
+     */
     public SwipeLayout(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
+    /**
+     * Instantiates a new Swipe layout.
+     *
+     * @param context the context
+     * @param attrs the attrs
+     * @param defStyle the def style
+     */
     public SwipeLayout(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         mDragHelper = ViewDragHelper.create(this, mDragHelperCallback);
@@ -78,25 +122,86 @@ public class SwipeLayout extends FrameLayout {
     }
 
 
+    /**
+     * The interface Swipe listener.
+     */
     public interface SwipeListener{
+        /**
+         * On start open.
+         *
+         * @param layout the layout
+         */
         public void onStartOpen(SwipeLayout layout);
+
+        /**
+         * On open.
+         *
+         * @param layout the layout
+         */
         public void onOpen(SwipeLayout layout);
+
+        /**
+         * On start close.
+         *
+         * @param layout the layout
+         */
         public void onStartClose(SwipeLayout layout);
+
+        /**
+         * On close.
+         *
+         * @param layout the layout
+         */
         public void onClose(SwipeLayout layout);
+
+        /**
+         * On update.
+         *
+         * @param layout the layout
+         * @param leftOffset the left offset
+         * @param topOffset the top offset
+         */
         public void onUpdate(SwipeLayout layout, int leftOffset, int topOffset);
+
+        /**
+         * On hand release.
+         *
+         * @param layout the layout
+         * @param xvel the xvel
+         * @param yvel the yvel
+         */
         public void onHandRelease(SwipeLayout layout, float xvel, float yvel);
     }
 
+    /**
+     * Add swipe listener.
+     *
+     * @param l the l
+     */
     public void addSwipeListener(SwipeListener l){
         mSwipeListeners.add(l);
     }
 
+    /**
+     * Remove swipe listener.
+     *
+     * @param l the l
+     */
     public void removeSwipeListener(SwipeListener l){
         mSwipeListeners.remove(l);
     }
 
+    /**
+     * The interface Swipe denier.
+     */
     public static interface SwipeDenier {
-        /*
+        /**
+         * Should deny swipe.
+         *
+         * @param ev the ev
+         * @return the boolean
+         */
+/*
          * Called in onInterceptTouchEvent
          * Determines if this swipe event should be denied
          * Implement this interface if you are using views with swipe gestures
@@ -108,26 +213,50 @@ public class SwipeLayout extends FrameLayout {
         public boolean shouldDenySwipe(MotionEvent ev);
     }
 
+    /**
+     * Add swipe denier.
+     *
+     * @param denier the denier
+     */
     public void addSwipeDenier(SwipeDenier denier) {
         mSwipeDeniers.add(denier);
     }
 
+    /**
+     * Remove swipe denier.
+     *
+     * @param denier the denier
+     */
     public void removeSwipeDenier(SwipeDenier denier) {
         mSwipeDeniers.remove(denier);
     }
 
+    /**
+     * Remove all swipe deniers.
+     */
     public void removeAllSwipeDeniers() {
         mSwipeDeniers.clear();
     }
 
+    /**
+     * The interface On reveal listener.
+     */
     public interface OnRevealListener {
+        /**
+         * On reveal.
+         *
+         * @param child the child
+         * @param edge the edge
+         * @param fraction the fraction
+         * @param distance the distance
+         */
         public void onReveal(View child, DragEdge edge, float fraction, int distance);
     }
 
     /**
      * bind a view with a specific {@link SwipeLayout.OnRevealListener}
      * @param childId the view id.
-     * @param l the target {@link SwipeLayout.OnRevealListener}
+     * @param l the target
      */
     public void addRevealListener(int childId, OnRevealListener l){
         View child =  findViewById(childId);
@@ -147,13 +276,19 @@ public class SwipeLayout extends FrameLayout {
     /**
      * bind multiple views with an {@link SwipeLayout.OnRevealListener}.
      * @param childIds the view id.
-     * @param l the {@link SwipeLayout.OnRevealListener}
+     * @param l the
      */
     public void addRevealListener(int[] childIds, OnRevealListener l){
         for(int i : childIds)
             addRevealListener(i, l);
     }
 
+    /**
+     * Remove reveal listener.
+     *
+     * @param childId the child id
+     * @param l the l
+     */
     public void removeRevealListener(int childId, OnRevealListener l){
         View child = findViewById(childId);
 
@@ -165,6 +300,11 @@ public class SwipeLayout extends FrameLayout {
             mRevealListeners.get(child).remove(l);
     }
 
+    /**
+     * Remove all reveal listeners.
+     *
+     * @param childId the child id
+     */
     public void removeAllRevealListeners(int childId){
         View child = findViewById(childId);
         if(child != null){
@@ -348,14 +488,14 @@ public class SwipeLayout extends FrameLayout {
     /**
      * the dispatchRevealEvent method may not always get accurate position, it makes the view may not always get the event when the view is
      * totally show( fraction = 1), so , we need to calculate every time.
-     * @param child
-     * @param relativePosition
-     * @param edge
-     * @param surfaceLeft
-     * @param surfaceTop
-     * @param surfaceRight
-     * @param surfaceBottom
-     * @return
+     * @param child the child
+     * @param relativePosition the relative position
+     * @param edge the edge
+     * @param surfaceLeft the surface left
+     * @param surfaceTop the surface top
+     * @param surfaceRight the surface right
+     * @param surfaceBottom the surface bottom
+     * @return boolean
      */
     protected boolean isViewTotallyFirstShowed(View child, Rect relativePosition, DragEdge edge, int surfaceLeft, int surfaceTop, int surfaceRight, int surfaceBottom){
         if(mShowEntirely.get(child))
@@ -382,6 +522,18 @@ public class SwipeLayout extends FrameLayout {
         return r;
     }
 
+    /**
+     * Is view showing.
+     *
+     * @param child the child
+     * @param relativePosition the relative position
+     * @param availableEdge the available edge
+     * @param surfaceLeft the surface left
+     * @param surfaceTop the surface top
+     * @param surfaceRight the surface right
+     * @param surfaceBottom the surface bottom
+     * @return the boolean
+     */
     protected boolean isViewShowing(View child, Rect relativePosition, DragEdge availableEdge, int surfaceLeft, int surfaceTop, int surfaceRight, int surfaceBottom){
         int childLeft = relativePosition.left;
         int childRight = relativePosition.right;
@@ -434,7 +586,12 @@ public class SwipeLayout extends FrameLayout {
     }
 
 
-
+    /**
+     * Get relative position.
+     *
+     * @param child the child
+     * @return the rect
+     */
     protected Rect getRelativePosition(View child){
         View t = child;
         Rect r = new Rect(t.getLeft(), t.getTop(), 0 , 0);
@@ -452,6 +609,14 @@ public class SwipeLayout extends FrameLayout {
 
     private int mEventCounter = 0;
 
+    /**
+     * Dispatch swipe event.
+     *
+     * @param surfaceLeft the surface left
+     * @param surfaceTop the surface top
+     * @param dx the dx
+     * @param dy the dy
+     */
     protected void dispatchSwipeEvent(int surfaceLeft, int surfaceTop, int dx, int dy){
         DragEdge edge = getDragEdge();
         boolean open = true;
@@ -468,6 +633,13 @@ public class SwipeLayout extends FrameLayout {
         dispatchSwipeEvent(surfaceLeft, surfaceTop, open);
     }
 
+    /**
+     * Dispatch swipe event.
+     *
+     * @param surfaceLeft the surface left
+     * @param surfaceTop the surface top
+     * @param open the open
+     */
     protected void dispatchSwipeEvent(int surfaceLeft, int surfaceTop, boolean open){
         safeBottomView();
         Status status = getOpenStatus();
@@ -519,6 +691,14 @@ public class SwipeLayout extends FrameLayout {
     }
 
 
+    /**
+     * Dispatch reveal event.
+     *
+     * @param surfaceLeft the surface left
+     * @param surfaceTop the surface top
+     * @param surfaceRight the surface right
+     * @param surfaceBottom the surface bottom
+     */
     protected void dispatchRevealEvent(final int surfaceLeft, final int surfaceTop, final int surfaceRight, final int surfaceBottom){
         if(mRevealListeners.isEmpty())  return;
         for(Map.Entry<View, ArrayList<OnRevealListener>> entry : mRevealListeners.entrySet()){
@@ -602,17 +782,32 @@ public class SwipeLayout extends FrameLayout {
      * I need to support it from API 8.
      */
     public interface OnLayout{
+        /**
+         * On layout.
+         *
+         * @param v the v
+         */
         public void onLayout(SwipeLayout v);
     }
 
     private List<OnLayout> mOnLayoutListeners;
 
+    /**
+     * Add on layout listener.
+     *
+     * @param l the l
+     */
     public void addOnLayoutListener(OnLayout l){
         if(mOnLayoutListeners == null)
             mOnLayoutListeners = new ArrayList<OnLayout>();
         mOnLayoutListeners.add(l);
     }
 
+    /**
+     * Remove on layout listener.
+     *
+     * @param l the l
+     */
     public void removeOnLayoutListener(OnLayout l){
         if(mOnLayoutListeners != null)
             mOnLayoutListeners.remove(l);
@@ -642,6 +837,9 @@ public class SwipeLayout extends FrameLayout {
 
     }
 
+    /**
+     * Layout pull out.
+     */
     void layoutPullOut(){
         Rect rect = computeSurfaceLayoutArea(false);
         getSurfaceView().layout(rect.left, rect.top, rect.right, rect.bottom);
@@ -650,6 +848,9 @@ public class SwipeLayout extends FrameLayout {
         bringChildToFront(getSurfaceView());
     }
 
+    /**
+     * Layout lay down.
+     */
     void layoutLayDown(){
         Rect rect = computeSurfaceLayoutArea(false);
         getSurfaceView().layout(rect.left, rect.top, rect.right, rect.bottom);
@@ -896,10 +1097,20 @@ public class SwipeLayout extends FrameLayout {
         return enable;
     }
 
+    /**
+     * Set swipe enabled.
+     *
+     * @param enabled the enabled
+     */
     public void setSwipeEnabled(boolean enabled){
         mSwipeEnabled = enabled;
     }
 
+    /**
+     * Is swipe enabled.
+     *
+     * @return the boolean
+     */
     public boolean isSwipeEnabled(){
         return mSwipeEnabled;
     }
@@ -937,6 +1148,10 @@ public class SwipeLayout extends FrameLayout {
     }
 
     private GestureDetector gestureDetector = new GestureDetector(getContext(), new SwipeDetector());
+
+    /**
+     * The type Swipe detector.
+     */
     class SwipeDetector extends GestureDetector.SimpleOnGestureListener{
         @Override
         public boolean onDown(MotionEvent e) {
@@ -989,6 +1204,11 @@ public class SwipeLayout extends FrameLayout {
         }
     }
 
+    /**
+     * Set drag edge.
+     *
+     * @param dragEdge the drag edge
+     */
     public void setDragEdge(DragEdge dragEdge){
         mDragEdge = dragEdge;
         requestLayout();
@@ -996,7 +1216,7 @@ public class SwipeLayout extends FrameLayout {
 
     /**
      * set the drag distance, it will force set the bottom view's width or height via this value.
-     * @param max
+     * @param max the max
      */
     public void setDragDistance(int max){
         if(max < 0)
@@ -1008,41 +1228,77 @@ public class SwipeLayout extends FrameLayout {
     /**
      * There are 2 diffirent show mode.
      * {@link SwipeLayout.ShowMode}.PullOut and {@link SwipeLayout.ShowMode}.LayDown.
-     * @param mode
+     * @param mode the mode
      */
     public void setShowMode(ShowMode mode){
         mShowMode = mode;
         requestLayout();
     }
 
+    /**
+     * Get drag edge.
+     *
+     * @return the drag edge
+     */
     public DragEdge getDragEdge(){
         return mDragEdge;
     }
 
+    /**
+     * Get drag distance.
+     *
+     * @return the int
+     */
     public int getDragDistance(){
         return mDragDistance;
     }
 
+    /**
+     * Get show mode.
+     *
+     * @return the show mode
+     */
     public ShowMode getShowMode(){
         return mShowMode;
     }
 
+    /**
+     * Get surface view.
+     *
+     * @return the view group
+     */
     public ViewGroup getSurfaceView(){
         return (ViewGroup)getChildAt(1);
     }
 
+    /**
+     * Get bottom view.
+     *
+     * @return the view group
+     */
     public ViewGroup getBottomView(){
         return (ViewGroup)getChildAt(0);
     }
 
+    /**
+     * The enum Status.
+     */
     public enum Status {
-        Middle , Open, Close
+        /**
+         * The Middle.
+         */
+        Middle , /**
+         * The Open.
+         */
+        Open, /**
+         * The Close.
+         */
+        Close
     }
 
     /**
      * get the open status.
-     * @return {@link SwipeLayout.Status}
-     * Open , Close or Middle.
+     * @return Open , Close or Middle.
      */
     public Status getOpenStatus(){
         int surfaceLeft = getSurfaceView().getLeft();
@@ -1148,10 +1404,21 @@ public class SwipeLayout extends FrameLayout {
         open(true, true);
     }
 
+    /**
+     * Open void.
+     *
+     * @param smooth the smooth
+     */
     public void open(boolean smooth){
         open(smooth, true);
     }
 
+    /**
+     * Open void.
+     *
+     * @param smooth the smooth
+     * @param notify the notify
+     */
     public void open(boolean smooth, boolean notify){
         ViewGroup surface = getSurfaceView(), bottom = getBottomView();
         int dx,dy;
@@ -1184,6 +1451,11 @@ public class SwipeLayout extends FrameLayout {
         close(true, true);
     }
 
+    /**
+     * Close void.
+     *
+     * @param smooth the smooth
+     */
     public void close(boolean smooth){
         close(smooth, true);
     }
@@ -1213,10 +1485,18 @@ public class SwipeLayout extends FrameLayout {
         invalidate();
     }
 
+    /**
+     * Toggle void.
+     */
     public void toggle(){
         toggle(true);
     }
 
+    /**
+     * Toggle void.
+     *
+     * @param smooth the smooth
+     */
     public void toggle(boolean smooth){
         if(getOpenStatus() == Status.Open)
             close(smooth);
@@ -1288,11 +1568,25 @@ public class SwipeLayout extends FrameLayout {
         return new Rect(bl, bt, br, bb);
     }
 
+    /**
+     * Set on double click listener.
+     *
+     * @param doubleClickListener the double click listener
+     */
     public void setOnDoubleClickListener(DoubleClickListener doubleClickListener){
         mDoubleClickListener = doubleClickListener;
     }
 
+    /**
+     * The interface Double click listener.
+     */
     public interface DoubleClickListener {
+        /**
+         * On double click.
+         *
+         * @param layout the layout
+         * @param surface the surface
+         */
         public void onDoubleClick(SwipeLayout layout, boolean surface);
     }
 

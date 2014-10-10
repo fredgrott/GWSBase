@@ -13,9 +13,22 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 /**
+ *
+ *
  * Created by fgrott on 10/9/2014.
  */
 public class Utils {
+    /**
+     * Draw view to bitmap.
+     *
+     * @param dest the dest
+     * @param view the view
+     * @param width the width
+     * @param height the height
+     * @param downSampling the down sampling
+     * @param drawable the drawable
+     * @return the bitmap
+     */
     public static Bitmap drawViewToBitmap(Bitmap dest, View view, int width, int height, int downSampling, Drawable drawable) {
         float scale = 1f / downSampling;
         int heightCopy = view.getHeight();
@@ -37,6 +50,12 @@ public class Utils {
         return dest;
     }
 
+    /**
+     * Save to sd card.
+     *
+     * @param bmp the bmp
+     * @param fileName the file name
+     */
     public static void saveToSdCard(Bitmap bmp, String fileName) {
         try {
             ByteArrayOutputStream bytes = new ByteArrayOutputStream();

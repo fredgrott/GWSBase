@@ -13,18 +13,41 @@ public class ParallaxImageView extends ImageView {
 
     private int mCurrentTranslation;
 
+    /**
+     * Instantiates a new Parallax image view.
+     *
+     * @param context the context
+     */
     public ParallaxImageView(Context context) {
         super(context);
     }
 
+    /**
+     * Instantiates a new Parallax image view.
+     *
+     * @param context the context
+     * @param attrs the attrs
+     */
     public ParallaxImageView(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
+    /**
+     * Instantiates a new Parallax image view.
+     *
+     * @param context the context
+     * @param attrs the attrs
+     * @param defStyle the def style
+     */
     public ParallaxImageView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
 
+    /**
+     * Sets current translation.
+     *
+     * @param currentTranslation the current translation
+     */
     public void setCurrentTranslation(int currentTranslation) {
         mCurrentTranslation = currentTranslation;
         invalidate();

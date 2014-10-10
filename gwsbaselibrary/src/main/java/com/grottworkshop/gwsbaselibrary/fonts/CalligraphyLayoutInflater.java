@@ -20,18 +20,33 @@ import android.content.Context;
 import android.view.LayoutInflater;
 
 /**
+ *
+ *
  * Created by fgrott on 10/7/2014.
  */
 class CalligraphyLayoutInflater extends LayoutInflater {
 
     private final int mAttributeId;
 
+    /**
+     * Instantiates a new Calligraphy layout inflater.
+     *
+     * @param context the context
+     * @param attributeId the attribute id
+     */
     protected CalligraphyLayoutInflater(Context context, int attributeId) {
         super(context);
         mAttributeId = attributeId;
         setUpLayoutFactory();
     }
 
+    /**
+     * Instantiates a new Calligraphy layout inflater.
+     *
+     * @param original the original
+     * @param newContext the new context
+     * @param attributeId the attribute id
+     */
     protected CalligraphyLayoutInflater(LayoutInflater original, Context newContext, int attributeId) {
         super(original, newContext);
         mAttributeId = attributeId;
