@@ -3,8 +3,13 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/GWSBase.iml" filepath="$PROJECT_DIR$/GWSBase.iml" />
+      <module fileurl="file://$PROJECT_DIR$/actionbars/actionbars.iml" filepath="$PROJECT_DIR$/actionbars/actionbars.iml" />
+      <module fileurl="file://$PROJECT_DIR$/activityanimationshardway/activityanimationshardway.iml" filepath="$PROJECT_DIR$/activityanimationshardway/activityanimationshardway.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/fadingactionbar/fadingactionbar.iml" filepath="$PROJECT_DIR$/fadingactionbar/fadingactionbar.iml" />
+      <module fileurl="file://$PROJECT_DIR$/glassactionbar/glassactionbar.iml" filepath="$PROJECT_DIR$/glassactionbar/glassactionbar.iml" />
       <module fileurl="file://$PROJECT_DIR$/gwsbaselibrary/gwsbaselibrary.iml" filepath="$PROJECT_DIR$/gwsbaselibrary/gwsbaselibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/notboringactionbar/notboringactionbar.iml" filepath="$PROJECT_DIR$/notboringactionbar/notboringactionbar.iml" />
     </modules>
   </component>
 </project>

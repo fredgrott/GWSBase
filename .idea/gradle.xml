@@ -5,6 +5,18 @@
       <GradleProjectSettings>
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/actionbars" />
+            <option value="$PROJECT_DIR$/activityanimationshardway" />
+            <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/fadingactionbar" />
+            <option value="$PROJECT_DIR$/glassactionbar" />
+            <option value="$PROJECT_DIR$/gwsbaselibrary" />
+            <option value="$PROJECT_DIR$/notboringactionbar" />
+          </set>
+        </option>
       </GradleProjectSettings>
     </option>
   </component>

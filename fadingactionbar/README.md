@@ -1,0 +1,4 @@
+FadingActionBar
+---
+
+FadingActionBarr sample

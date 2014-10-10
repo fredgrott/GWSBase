@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">ActivityAnimationsHardWay</string>
+    <string name="title_activity_first">FirstActivity</string>
+    <string name="title_activity_second">SecondActivity</string>
+    <string name="title_activity_third">ThirdActivity</string>
+    <string name="title_activity_door">DoorActivity</string>
+
+</resources>

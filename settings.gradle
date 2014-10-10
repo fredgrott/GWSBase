@@ -1,1 +1,1 @@
-include ':app', ':gwsbaselibrary'
+include ':app', ':gwsbaselibrary', ':actionbars', ':fadingactionbar', ':glassactionbar', ':notboringactionbar', ':activityanimationshardway'
