@@ -6,7 +6,7 @@ import android.graphics.Color;
  * GWSColor, modified from Matt York's Colours library to include material design colors.
  * Created by fgrott on 10/7/2014.
  */
-@SuppressWarnings("unchecked")
+@SuppressWarnings("all")
 public class GWSColor extends Color {
     /**
      * The enum Color scheme.
